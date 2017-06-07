@@ -1,0 +1,38 @@
+﻿<script id="siteside-template" type="text/x-knockout-template">
+    <div>
+        
+        <typeahead  params="name:       site_name,
+                                display:    site_display, 
+                                search:     site_search, 
+                                field:       site_field,
+                                fieldName: site_fieldName,
+                                normalized:  site_normalized, 
+                                fieldMap:    site_fieldMap,
+                                updateCallback:site_updateCallback,
+                                error:      site_error"></typeahead>
+     
+    </div>
+    @*<div class="panel panel-default">
+        <div class="panel-body">
+            <div style="right: 20px;top:5px;position:absolute;">
+                <error-ball params="name: 'BodySide'"></error-ball>
+            </div>
+            <radio-button params="field: BodySide, checkedValue: 'L', uiFieldName: 'BodySideLeft', groupName: 'm027-Side', inline: true"></radio-button>
+            <radio-button params="field: BodySide, checkedValue: 'R', uiFieldName: 'BodySideRight', groupName: 'm027-Side', inline: true"></radio-button>
+            <radio-button params="field: BodySide, checkedValue: 'B', uiFieldName: 'BodySideBilateral', groupName: 'm027-Side', inline: true"></radio-button>
+            <radio-button params="field: BodySide, checkedValue: 'N', uiFieldName: 'BodySideNA', groupName: 'm027-Side', inline: true"></radio-button>
+        </div>
+    </div>*@
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div style="right: 20px;top:65px;position:absolute;">
+                <error-ball params="name: side_error"></error-ball>
+            </div>
+            <!-- ko foreach: $component.sideItemsData -->
+            <radio-button params="field: $component.side_field, checkedValue: $data.SideCode, uiFieldName: $data.UIFieldName, groupName:$component.side_groupName, inline: true,enabled:  $component.BodySideEnabled"></radio-button>
+
+            <!-- /ko -->
+        </div>
+    </div>
+
+</script>

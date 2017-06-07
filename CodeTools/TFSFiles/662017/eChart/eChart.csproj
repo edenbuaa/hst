@@ -1,0 +1,1899 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{42F1C000-9A1E-4D92-AC5D-DB404D1ED6FF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>eChart</RootNamespace>
+    <AssemblyName>eChart</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>
+    </IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>
+    </IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>
+    </IISExpressUseClassicPipelineMode>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HstSecurityUserNamePasswordValidator, Version=5.16.204.0, Culture=neutral, PublicKeyToken=f1b0624b6e176407, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\HstSecurityUserNamePasswordValidator.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.0\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MoreLinq">
+      <HintPath>..\packages\morelinq.1.4.0\lib\net35\MoreLinq.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.identitymodel.services" />
+    <Reference Include="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.ValidatingIssuerNameRegistry.4.5.1\lib\net45\System.IdentityModel.Tokens.ValidatingIssuerNameRegistry.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.1.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="ChartDesigner\SQLGenerator\BundleWorkflowTemplateSQL.cs" />
+    <Compile Include="ChartDesigner\SQLGenerator\ChartTemplateSQL.cs" />
+    <Compile Include="ChartDesigner\SQLGenerator\ModuleTemplateSQL.cs" />
+    <Compile Include="ChartDesigner\SQLGenerator\WorkflowTemplateSQL.cs" />
+    <Compile Include="Configurations\DefaultConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\API\AuditHistoryApiController.cs" />
+    <Compile Include="Controllers\API\BaseApiController.cs" />
+    <Compile Include="Controllers\API\DrugDatabaseAPIController.cs" />
+    <Compile Include="Controllers\API\ErrorLogController.cs" />
+    <Compile Include="Controllers\API\SiteSideController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\API\ChartApiController.cs" />
+    <Compile Include="Controllers\ChartController.cs" />
+    <Compile Include="Controllers\API\ChartDesignerApiController.cs" />
+    <Compile Include="Controllers\ChartDesignerController.cs" />
+    <Compile Include="Controllers\ChartHomeController.cs" />
+    <Compile Include="Controllers\API\DocumentApiController.cs" />
+    <Compile Include="Controllers\DocumentController.cs" />
+    <Compile Include="Controllers\API\GCodeApiController.cs" />
+    <Compile Include="Controllers\API\GoldStandardApiController.cs" />
+    <Compile Include="Controllers\DrugDatabaseController.cs" />
+    <Compile Include="Controllers\GZip.cs" />
+    <Compile Include="Controllers\API\HomeApiController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HstBaseController.cs" />
+    <Compile Include="Controllers\API\HSTBundleController.cs" />
+    <Compile Include="Controllers\API\ImageController.cs" />
+    <Compile Include="Controllers\API\LiveEditController.cs" />
+    <Compile Include="Controllers\LoggedInUser.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\API\MetadataController.cs" />
+    <Compile Include="Controllers\API\PatientMonitorController.cs" />
+    <Compile Include="Controllers\API\SignInController.cs" />
+    <Compile Include="Extensions\HtmlExtensions.cs" />
+    <Compile Include="Extensions\ScheduleExtensions.cs" />
+    <Compile Include="Filters\API\APIFunctionAuthorize.cs" />
+    <Compile Include="Filters\API\ModulePermission.cs" />
+    <Compile Include="Filters\ErrorFilter.cs" />
+    <Compile Include="Filters\FunctionAuthorize.cs" />
+    <Compile Include="Filters\ModuleAuthorize.cs" />
+    <Compile Include="Filters\SessionExpire.cs" />
+    <Compile Include="Filters\UnhandledExceptionFilter.cs" />
+    <Compile Include="Filters\WorkflowAuthorize.cs" />
+    <Compile Include="GoldStandard\MedicationData.cs" />
+    <Compile Include="Helper\BundleHelper.cs" />
+    <Compile Include="Helper\ChartDesignerHelper.cs" />
+    <Compile Include="Helper\CompressionHelper.cs" />
+    <Compile Include="Helper\DataTableHelper.cs" />
+    <Compile Include="GoldStandard\GoldStandardWrapper.cs" />
+    <Compile Include="Helper\MetadataProcessor.cs" />
+    <Compile Include="Helper\ScheduleHelper.cs" />
+    <Compile Include="Models\ChartHomeModel.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Proxy\AscProxy.cs" />
+    <Compile Include="Proxy\ProxyHelper.cs" />
+    <Compile Include="Controllers\API\TypeaheadController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="LiveEditHub.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ChartSectionModel.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proxy\ChartFacadeProxy.cs" />
+    <Compile Include="Proxy\Security.cs" />
+    <Compile Include="Proxy\ServiceEndpointBehavior.cs" />
+    <Compile Include="Security\ClaimsUserFactory.cs" />
+    <Compile Include="Service References\GoldStandardService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AddBundleViewModel.cs" />
+    <Compile Include="ViewModels\AllergenMedicationAliasViewModel.cs" />
+    <Compile Include="ViewModels\AllergenMedicationInactiveAliasViewModel.cs" />
+    <Compile Include="ViewModels\AnesthesiaGasViewModel.cs" />
+    <Compile Include="ViewModels\AnesthesiaMedicationViewModel.cs" />
+    <Compile Include="ViewModels\AppointmentViewModel.cs" />
+    <Compile Include="ViewModels\AreaViewModel.cs" />
+    <Compile Include="ViewModels\AssignUserViewModel.cs" />
+    <Compile Include="ViewModels\BLOCAliasesViewModel.cs" />
+    <Compile Include="ViewModels\BLOCAliasViewModel.cs" />
+    <Compile Include="ViewModels\BundleViewModel.cs" />
+    <Compile Include="ViewModels\CenterConfigurationViewModel.cs" />
+    <Compile Include="ViewModels\ChartDesignerViewModel.cs" />
+    <Compile Include="ViewModels\ChartHomeViewModel.cs" />
+    <Compile Include="ViewModels\ChartStatusModel.cs" />
+    <Compile Include="ViewModels\ChartTemplateDetailsViewModel.cs" />
+    <Compile Include="ViewModels\ChartTemplateModuleConfigViewModel.cs" />
+    <Compile Include="ViewModels\ChartTemplatesViewModel.cs" />
+    <Compile Include="ViewModels\ChartTemplateViewModel.cs" />
+    <Compile Include="ViewModels\ConsentOptionsViewModel.cs" />
+    <Compile Include="ViewModels\ConsentsMapViewModel.cs" />
+    <Compile Include="ViewModels\ConsentTypeViewModel.cs" />
+    <Compile Include="ViewModels\CreatedBy.cs" />
+    <Compile Include="ViewModels\CriteriaViewModel.cs" />
+    <Compile Include="ViewModels\ErrorViewModel.cs" />
+    <Compile Include="ViewModels\Filters.cs" />
+    <Compile Include="ViewModels\ChartModule.cs" />
+    <Compile Include="ViewModels\ImportChartTemplateViewModel.cs" />
+    <Compile Include="ViewModels\ModuleStatusModel.cs" />
+    <Compile Include="ViewModels\ModulesViewModel.cs" />
+    <Compile Include="ViewModels\ModuleTemplate.cs" />
+    <Compile Include="ViewModels\PatientDemographicsViewModel.cs" />
+    <Compile Include="ViewModels\PatientLocationViewModel.cs" />
+    <Compile Include="ViewModels\PersonBaseClass.cs" />
+    <Compile Include="ViewModels\PhysicianViewModel.cs" />
+    <Compile Include="ViewModels\OperativeReportViewModel.cs" />
+    <Compile Include="ViewModels\PinViewModel.cs" />
+    <Compile Include="ViewModels\PrintSetStatusModel.cs" />
+    <Compile Include="ViewModels\PrintSetsViewModel.cs" />
+    <Compile Include="ViewModels\QuestionnaireTemplatesViewModel.cs" />
+    <Compile Include="ViewModels\PrintSetViewModel.cs" />
+    <Compile Include="ViewModels\QuestionnaireTemplateViewModel.cs" />
+    <Compile Include="ViewModels\QuestionTemplatesViewModel.cs" />
+    <Compile Include="ViewModels\QuestionTemplateViewModel.cs" />
+    <Compile Include="ViewModels\QuestionViewModel.cs" />
+    <Compile Include="ViewModels\RetainedVisitViewModel.cs" />
+    <Compile Include="ViewModels\RoomViewModel.cs" />
+    <Compile Include="ViewModels\ScheduleLegendViewModel.cs" />
+    <Compile Include="ViewModels\ScheduleViewModel.cs" />
+    <Compile Include="ViewModels\SearchedTabPermission.cs" />
+    <Compile Include="ViewModels\SpecialtyCodeViewModel.cs" />
+    <Compile Include="ViewModels\ColorOptionViewModel.cs" />
+    <Compile Include="ViewModels\TaskPageModel.cs" />
+    <Compile Include="ViewModels\TasksOperationViewModel.cs" />
+    <Compile Include="ViewModels\TasksSearchModel.cs" />
+    <Compile Include="ViewModels\TaskCountOfUser.cs" />
+    <Compile Include="ViewModels\TaskTemplateViewModel.cs" />
+    <Compile Include="ViewModels\TemplateViewModel.cs" />
+    <Compile Include="ViewModels\TimeLineViewModel.cs" />
+    <Compile Include="ViewModels\UserTaskViewModule.cs" />
+    <Compile Include="ViewModels\VisiterViewModel.cs" />
+    <Compile Include="ViewModels\WorkflowBundle2ViewModel.cs" />
+    <Compile Include="ViewModels\WorkflowBundleBase.cs" />
+    <Compile Include="ViewModels\WorkflowBundleViewModel.cs" />
+    <Compile Include="ViewModels\WorkflowManagerViewModel.cs" />
+    <Compile Include="ViewModels\WorkflowMenuViewModel.cs" />
+    <Compile Include="ViewModels\WorkflowStatusModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Readme\Elmah.txt" />
+    <Content Include="Certs\HSTeChart.pfx" />
+    <Content Include="Certs\HSTeChart_commandline.txt" />
+    <Content Include="Content\css\bootstrap-datetimepicker.css" />
+    <Content Include="Content\css\bootstrap-dialog.min.css" />
+    <Content Include="Content\css\bootstrap-select.css" />
+    <Content Include="Content\css\bootstrap-theme.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.vertical-tabs.css" />
+    <Content Include="Content\css\bootstrap.vertical-tabs.min.css" />
+    <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\font-awesome.min.css">
+      <DependentUpon>font-awesome.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\froala_editor.css" />
+    <Content Include="Content\css\hst-icons.css" />
+    <Content Include="Content\css\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Content\css\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Content\css\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\css\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Content\css\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Content\css\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\css\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Content\css\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\css\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Content\css\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Content\css\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\css\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\css\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Content\css\jquery-te-1.4.0.css" />
+    <Content Include="Content\css\jquery-ui.css" />
+    <Content Include="Content\css\jquery-ui.min.css" />
+    <Content Include="Content\css\jquery-ui.structure.css" />
+    <Content Include="Content\css\jquery-ui.structure.min.css" />
+    <Content Include="Content\css\jquery-ui.theme.css" />
+    <Content Include="Content\css\jquery-ui.theme.min.css" />
+    <Content Include="Content\css\select2.css" />
+    <Content Include="Content\css\site.css">
+      <DependentUpon>site.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\css\site.min.css">
+      <DependentUpon>site.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\styles.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\hst-icons.svg" />
+    <Content Include="Content\fonts\OpenSans-Regular-webfont.svg" />
+    <Content Include="Content\img\bx_loader.gif" />
+    <Content Include="Content\img\camera.svg" />
+    <Content Include="Content\img\camera2017.svg" />
+    <Content Include="Content\img\controls.png" />
+    <Content Include="Content\img\HSTeChart-icon.png" />
+    <Content Include="Content\img\HSTeChart-logo-large.png" />
+    <Content Include="Content\img\HSTeChart-logo-medium.png" />
+    <Content Include="Content\img\HSTeChart-logo-smaller.png" />
+    <Content Include="Content\img\HSTeChart-logo-small.png" />
+    <Content Include="Content\img\img1.jpg" />
+    <Content Include="Content\img\jquery-te-1.4.0.css" />
+    <Content Include="Content\img\jquery-te.png" />
+    <Content Include="Content\img\logo.svg" />
+    <Content Include="Content\img\male_head.svg" />
+    <Content Include="Content\img\no_patient.jpg" />
+    <Content Include="Content\img\patient.jpg" />
+    <Content Include="Content\img\radio.svg" />
+    <Content Include="Content\img\select2-spinner.gif" />
+    <Content Include="Content\img\select2.png" />
+    <Content Include="Content\img\select2x2.png" />
+    <Content Include="Content\img\signicon.png" />
+    <Content Include="Content\img\user_lock.png" />
+    <Content Include="Content\img\Wong0.svg" />
+    <Content Include="Content\img\Wong10.svg" />
+    <Content Include="Content\img\Wong2.svg" />
+    <Content Include="Content\img\Wong4.svg" />
+    <Content Include="Content\img\Wong6.svg" />
+    <Content Include="Content\img\Wong8.svg" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Lib\HstSecurityUserNamePasswordValidator.dll" />
+    <Content Include="Modules\000_WorkflowHeader\1\WorkflowHeader.css" />
+    <Content Include="Modules\000_WorkflowHeader\1\WorkflowHeader.html" />
+    <Content Include="Modules\000_WorkflowHeader\1\WorkflowHeader.js" />
+    <Content Include="Modules\001_Questions\1\Questions.css" />
+    <Content Include="Modules\001_Questions\1\Questions.html" />
+    <Content Include="Modules\001_Questions\1\Questions.js" />
+    <Content Include="Modules\002_SkinCondition\1\SkinCondition.css" />
+    <Content Include="Modules\002_SkinCondition\1\SkinCondition.html" />
+    <Content Include="Modules\002_SkinCondition\1\SkinCondition.js" />
+    <Content Include="Modules\003_Allergy\1\Allergy.css" />
+    <Content Include="Modules\003_Allergy\1\Allergy.html" />
+    <Content Include="Modules\003_Allergy\1\Allergy.js" />
+    <Content Include="Modules\004_PainAssessment\1\PainAssessment.css" />
+    <Content Include="Modules\004_PainAssessment\1\PainAssessment.html" />
+    <Content Include="Modules\004_PainAssessment\1\PainAssessment.js" />
+    <Content Include="Modules\005_CommunicationLog\1\CommunicationLog.css" />
+    <Content Include="Modules\005_CommunicationLog\1\CommunicationLog.html" />
+    <Content Include="Modules\005_CommunicationLog\1\CommunicationLog.js" />
+    <Content Include="Modules\006_CancelCase\1\CancelCase.html" />
+    <Content Include="Modules\006_CancelCase\1\CancelCase.js" />
+    <Content Include="Modules\007_PatientInformation\1\PatientInformation.html" />
+    <Content Include="Modules\007_PatientInformation\1\PatientInformation.js" />
+    <Content Include="Modules\008_Diagnosis\1\Diagnosis.css" />
+    <Content Include="Modules\008_Diagnosis\1\Diagnosis.html" />
+    <Content Include="Modules\008_Diagnosis\1\Diagnosis.js" />
+    <Content Include="Modules\009_HeightWeightBMI\1\HeightWeightBMI.css" />
+    <Content Include="Modules\009_HeightWeightBMI\1\HeightWeightBMI.html" />
+    <Content Include="Modules\009_HeightWeightBMI\1\HeightWeightBMI.js" />
+    <Content Include="Modules\010_HomeMedication\1\HomeMedication.css" />
+    <Content Include="Modules\010_HomeMedication\1\HomeMedication.html" />
+    <Content Include="Modules\010_HomeMedication\1\HomeMedication.js" />
+    <Content Include="Modules\011_RoomInTime\1\RoomInTime.css" />
+    <Content Include="Modules\011_RoomInTime\1\RoomInTime.html" />
+    <Content Include="Modules\011_RoomInTime\1\RoomInTime.js" />
+    <Content Include="Modules\012_PatientVitals\1\PatientVitals.css" />
+    <Content Include="Modules\012_PatientVitals\1\PatientVitals.html" />
+    <Content Include="Modules\012_PatientVitals\1\PatientVitals.js" />
+    <Content Include="Modules\013_ProcedureInformation\1\ProcedureInformation.css" />
+    <Content Include="Modules\013_ProcedureInformation\1\ProcedureInformation.html" />
+    <Content Include="Modules\013_ProcedureInformation\1\ProcedureInformation.js" />
+    <Content Include="Modules\014_VitalsAnesthesiaGraph\1\VitalsAnesthesiaGraph.css" />
+    <Content Include="Modules\014_VitalsAnesthesiaGraph\1\VitalsAnesthesiaGraph.html" />
+    <Content Include="Modules\014_VitalsAnesthesiaGraph\1\VitalsAnesthesiaGraph.js" />
+    <Content Include="Modules\015_PatientLimitations\1\PatientLimitation.js" />
+    <Content Include="Modules\015_PatientLimitations\1\PatientLimitations.html" />
+    <Content Include="Modules\016_NPOStatus\1\NPOStatus.html" />
+    <Content Include="Modules\016_NPOStatus\1\NPOStatus.js" />
+    <Content Include="Modules\017_IVInsertion\1\IVInsertion.css" />
+    <Content Include="Modules\017_IVInsertion\1\IVInsertion.html" />
+    <Content Include="Modules\017_IVInsertion\1\IVInsertion.js" />
+    <Content Include="Modules\018_VTERiskAssessment\1\VTERiskAssessment.css" />
+    <Content Include="Modules\018_VTERiskAssessment\1\VTERiskAssessment.html" />
+    <Content Include="Modules\018_VTERiskAssessment\1\VTERiskAssessment.js" />
+    <Content Include="Modules\019_FallRiskAssessment\1\FallRiskAssessment.html" />
+    <Content Include="Modules\019_FallRiskAssessment\1\FallRiskAssessment.js" />
+    <Content Include="Modules\020_PatientValuables\1\PatientValuables.css" />
+    <Content Include="Modules\020_PatientValuables\1\PatientValuables.html" />
+    <Content Include="Modules\020_PatientValuables\1\PatientValuables.js" />
+    <Content Include="Modules\021_Dentition\1\Dentition.css" />
+    <Content Include="Modules\021_Dentition\1\Dentition.html" />
+    <Content Include="Modules\021_Dentition\1\Dentition.js" />
+    <Content Include="Modules\022_RoomOutTime\1\RoomOutTime.html" />
+    <Content Include="Modules\022_RoomOutTime\1\RoomOutTime.js" />
+    <Content Include="Modules\023_ScheduledProcedures\1\ScheduledProcedures.css" />
+    <Content Include="Modules\023_ScheduledProcedures\1\ScheduledProcedures.html" />
+    <Content Include="Modules\023_ScheduledProcedures\1\ScheduledProcedures.js" />
+    <Content Include="Modules\024_PatientArrivalTime\1\PatientArrivalTime.css" />
+    <Content Include="Modules\024_PatientArrivalTime\1\PatientArrivalTime.html" />
+    <Content Include="Modules\024_PatientArrivalTime\1\PatientArrivalTime.js" />
+    <Content Include="Modules\025_Prep\1\Prep.css" />
+    <Content Include="Modules\025_Prep\1\Prep.html" />
+    <Content Include="Modules\025_Prep\1\Prep.js" />
+    <Content Include="Modules\026_Positioning\1\Positioning.css" />
+    <Content Include="Modules\026_Positioning\1\Positioning.html" />
+    <Content Include="Modules\026_Positioning\1\Positioning.js" />
+    <Content Include="Modules\027_PositioningAids\1\PositioningAids.html" />
+    <Content Include="Modules\027_PositioningAids\1\PositioningAids.js" />
+    <Content Include="Modules\028_ReturnPatientValuables\1\ReturnPatientValuables.css" />
+    <Content Include="Modules\028_ReturnPatientValuables\1\ReturnPatientValuables.html" />
+    <Content Include="Modules\028_ReturnPatientValuables\1\ReturnPatientValuables.js" />
+    <Content Include="Modules\029_DrainsAndPackingPlacement\1\DrainsAndPackingPlacement.css" />
+    <Content Include="Modules\029_DrainsAndPackingPlacement\1\DrainsAndPackingPlacement.html" />
+    <Content Include="Modules\029_DrainsAndPackingPlacement\1\DrainsAndPackingPlacement.js" />
+    <Content Include="Modules\030_StaffDetail\1\StaffDetail.html" />
+    <Content Include="Modules\030_StaffDetail\1\StaffDetail.js" />
+    <Content Include="Modules\031_ImplantLog\1\ImplantLog.css" />
+    <Content Include="Modules\031_ImplantLog\1\ImplantLog.html" />
+    <Content Include="Modules\031_ImplantLog\1\ImplantLog.js" />
+    <Content Include="Modules\032_Counts\1\Counts.css" />
+    <Content Include="Modules\032_Counts\1\Counts.html" />
+    <Content Include="Modules\032_Counts\1\Counts.js" />
+    <Content Include="Modules\034_MedicationReconciliation\1\MedicationReconciliation.css" />
+    <Content Include="Modules\034_MedicationReconciliation\1\MedicationReconciliation.html" />
+    <Content Include="Modules\034_MedicationReconciliation\1\MedicationReconciliation.js" />
+    <Content Include="Modules\035_Specimens\1\Specimens.css" />
+    <Content Include="Modules\035_Specimens\1\Specimens.html" />
+    <Content Include="Modules\035_Specimens\1\Specimens.js" />
+    <Content Include="Modules\036_MedicationAdministration\1\MedicationAdministration.css" />
+    <Content Include="Modules\036_MedicationAdministration\1\MedicationAdministration.html" />
+    <Content Include="Modules\036_MedicationAdministration\1\MedicationAdministration.js" />
+    <Content Include="Modules\037_Solutions\1\Solutions.html" />
+    <Content Include="Modules\037_Solutions\1\Solutions.js" />
+    <Content Include="Modules\038_Dressings\1\Dressings.html" />
+    <Content Include="Modules\038_Dressings\1\Dressings.js" />
+    <Content Include="Modules\039_EquipmentCautery\1\EquipmentCautery.css" />
+    <Content Include="Modules\039_EquipmentCautery\1\EquipmentCautery.html" />
+    <Content Include="Modules\039_EquipmentCautery\1\EquipmentCautery.js" />
+    <Content Include="Modules\040_EquipmentLaserOphthalmic\1\EquipmentLaserOphthalmic.css" />
+    <Content Include="Modules\040_EquipmentLaserOphthalmic\1\EquipmentLaserOphthalmic.html" />
+    <Content Include="Modules\040_EquipmentLaserOphthalmic\1\EquipmentLaserOphthalmic.js" />
+    <Content Include="Modules\041_TourniquetComplex\1\TourniquetComplex.css" />
+    <Content Include="Modules\041_TourniquetComplex\1\TourniquetComplex.html" />
+    <Content Include="Modules\041_TourniquetComplex\1\TourniquetComplex.js" />
+    <Content Include="Modules\042_EquipmentOther\1\EquipmentOther.css" />
+    <Content Include="Modules\042_EquipmentOther\1\EquipmentOther.html" />
+    <Content Include="Modules\042_EquipmentOther\1\EquipmentOther.js" />
+    <Content Include="Modules\043_EquipmentRadiology\1\EquipmentRadiology.css" />
+    <Content Include="Modules\043_EquipmentRadiology\1\EquipmentRadiology.html" />
+    <Content Include="Modules\043_EquipmentRadiology\1\EquipmentRadiology.js" />
+    <Content Include="Modules\044_EquipmentLaserOther\1\EquipmentLaserOther.css" />
+    <Content Include="Modules\044_EquipmentLaserOther\1\EquipmentLaserOther.html" />
+    <Content Include="Modules\044_EquipmentLaserOther\1\EquipmentLaserOther.js" />
+    <Content Include="Modules\045_Thermoregulation\1\Thermoregulation.css" />
+    <Content Include="Modules\045_Thermoregulation\1\Thermoregulation.html" />
+    <Content Include="Modules\045_Thermoregulation\1\Thermoregulation.js" />
+    <Content Include="Modules\046_ObserverInformation\1\ObserverInformation.css" />
+    <Content Include="Modules\046_ObserverInformation\1\ObserverInformation.html" />
+    <Content Include="Modules\046_ObserverInformation\1\ObserverInformation.js" />
+    <Content Include="Modules\047_WoundClass\1\WoundClass.css" />
+    <Content Include="Modules\047_WoundClass\1\WoundClass.html" />
+    <Content Include="Modules\047_WoundClass\1\WoundClass.js" />
+    <Content Include="Modules\048_IncisionStartTime\1\IncisionStartTime.html" />
+    <Content Include="Modules\048_IncisionStartTime\1\IncisionStartTime.js" />
+    <Content Include="Modules\049_IncisionStopTime\1\IncisionStopTime.html" />
+    <Content Include="Modules\049_IncisionStopTime\1\IncisionStopTime.js" />
+    <Content Include="Modules\050_ProcedureChange\1\ProcedureChange.html" />
+    <Content Include="Modules\050_ProcedureChange\1\ProcedureChange.js" />
+    <Content Include="Modules\051_GCodeSelection\1\GCodeSelection.css" />
+    <Content Include="Modules\051_GCodeSelection\1\GCodeSelection.html" />
+    <Content Include="Modules\051_GCodeSelection\1\GCodeSelection.js" />
+    <Content Include="Modules\052_Note\1\Note.html" />
+    <Content Include="Modules\052_Note\1\Note.js" />
+    <Content Include="Modules\053_InstrumentSterilization\1\InstrumentSterilization.html" />
+    <Content Include="Modules\053_InstrumentSterilization\1\InstrumentSterilization.js" />
+    <Content Include="Modules\054_PsychosocialStatus\1\PsychosocialStatus.css" />
+    <Content Include="Modules\054_PsychosocialStatus\1\PsychosocialStatus.html" />
+    <Content Include="Modules\054_PsychosocialStatus\1\PsychosocialStatus.js" />
+    <Content Include="Modules\055_PostAnesthesiaRecoveryScore\1\PostAnesthesiaRecoveryScore.css" />
+    <Content Include="Modules\055_PostAnesthesiaRecoveryScore\1\PostAnesthesiaRecoveryScore.html" />
+    <Content Include="Modules\055_PostAnesthesiaRecoveryScore\1\PostAnesthesiaRecoveryScore.js" />
+    <Content Include="Modules\056_OxygenTherapySimple\1\OxygenTherapySimple.css" />
+    <Content Include="Modules\056_OxygenTherapySimple\1\OxygenTherapySimple.html" />
+    <Content Include="Modules\056_OxygenTherapySimple\1\OxygenTherapySimple.js" />
+    <Content Include="Modules\057_IVDiscontinued\1\IVDiscontinued.css" />
+    <Content Include="Modules\057_IVDiscontinued\1\IVDiscontinued.html" />
+    <Content Include="Modules\057_IVDiscontinued\1\IVDiscontinued.js" />
+    <Content Include="Modules\058_DischargeStatus\1\DischargeStatus.html" />
+    <Content Include="Modules\058_DischargeStatus\1\DischargeStatus.js" />
+    <Content Include="Modules\059_IntakeAndOutput\1\IntakeAndOutput.css" />
+    <Content Include="Modules\059_IntakeAndOutput\1\IntakeAndOutput.html" />
+    <Content Include="Modules\059_IntakeAndOutput\1\IntakeAndOutput.js" />
+    <Content Include="Modules\060_AirwayManagement\1\AirwayManagement.css" />
+    <Content Include="Modules\060_AirwayManagement\1\AirwayManagement.html" />
+    <Content Include="Modules\060_AirwayManagement\1\AirwayManagement.js" />
+    <Content Include="Modules\061_DressingAssessment\1\DressingAssessment.css" />
+    <Content Include="Modules\061_DressingAssessment\1\DressingAssessment.html" />
+    <Content Include="Modules\061_DressingAssessment\1\DressingAssessment.js" />
+    <Content Include="Modules\062_PatientHandoff\1\PatientHandoff.html" />
+    <Content Include="Modules\062_PatientHandoff\1\PatientHandoff.js" />
+    <Content Include="Modules\063_PostOpExtremityCheck\1\PostOpExtremityCheck.css" />
+    <Content Include="Modules\063_PostOpExtremityCheck\1\PostOpExtremityCheck.html" />
+    <Content Include="Modules\063_PostOpExtremityCheck\1\PostOpExtremityCheck.js" />
+    <Content Include="Modules\064_OxygenTherapyComplex\1\OxygenTherapyComplex.html" />
+    <Content Include="Modules\064_OxygenTherapyComplex\1\OxygenTherapyComplex.js" />
+    <Content Include="Modules\065_LevelOfConsciousness\1\LevelOfConsciousness.css" />
+    <Content Include="Modules\065_LevelOfConsciousness\1\LevelOfConsciousness.html" />
+    <Content Include="Modules\065_LevelOfConsciousness\1\LevelOfConsciousness.js" />
+    <Content Include="Modules\066_GeneralAnesthesiaInduction\1\GeneralAnesthesiaInduction.css" />
+    <Content Include="Modules\066_GeneralAnesthesiaInduction\1\GeneralAnesthesiaInduction.html" />
+    <Content Include="Modules\066_GeneralAnesthesiaInduction\1\GeneralAnesthesiaInduction.js" />
+    <Content Include="Modules\067_AnesthesiaCare\1\AnesthesiaCare.css" />
+    <Content Include="Modules\067_AnesthesiaCare\1\AnesthesiaCare.html" />
+    <Content Include="Modules\067_AnesthesiaCare\1\AnesthesiaCare.js" />
+    <Content Include="Modules\068_AnesthesiaPhysicalAssessment\1\AnesthesiaPhysicalAssessment.css" />
+    <Content Include="Modules\068_AnesthesiaPhysicalAssessment\1\AnesthesiaPhysicalAssessment.html" />
+    <Content Include="Modules\068_AnesthesiaPhysicalAssessment\1\AnesthesiaPhysicalAssessment.js" />
+    <Content Include="Modules\069_DrainsAndPackingRemoval\1\DrainsAndPackingRemoval.css" />
+    <Content Include="Modules\069_DrainsAndPackingRemoval\1\DrainsAndPackingRemoval.html" />
+    <Content Include="Modules\069_DrainsAndPackingRemoval\1\DrainsAndPackingRemoval.js" />
+    <Content Include="Modules\070_HistoryAndPhysicalComplex\1\HistoryAndPhysicalComplex.css" />
+    <Content Include="Modules\070_HistoryAndPhysicalComplex\1\HistoryAndPhysicalComplex.html" />
+    <Content Include="Modules\070_HistoryAndPhysicalComplex\1\HistoryAndPhysicalComplex.js" />
+    <Content Include="Modules\071_InterimOperativeReportSimple\1\InterimOperativeReportSimple.css" />
+    <Content Include="Modules\071_InterimOperativeReportSimple\1\InterimOperativeReportSimple.html" />
+    <Content Include="Modules\071_InterimOperativeReportSimple\1\InterimOperativeReportSimple.js" />
+    <Content Include="Modules\072_PhysicianOrders\1\PhysicianOrders.css" />
+    <Content Include="Modules\072_PhysicianOrders\1\PhysicianOrders.html" />
+    <Content Include="Modules\072_PhysicianOrders\1\PhysicianOrders.js" />
+    <Content Include="Modules\073_AnesthesiaOrders\1\AnesthesiaOrders.css" />
+    <Content Include="Modules\073_AnesthesiaOrders\1\AnesthesiaOrders.html" />
+    <Content Include="Modules\073_AnesthesiaOrders\1\AnesthesiaOrders.js" />
+    <Content Include="Modules\074_InterimOperativeReport\1\InterimOperativeReport.css" />
+    <Content Include="Modules\074_InterimOperativeReport\1\InterimOperativeReport.html" />
+    <Content Include="Modules\074_InterimOperativeReport\1\InterimOperativeReport.js" />
+    <Content Include="Modules\075_VisitAddendum\1\VisitAddendum.html" />
+    <Content Include="Modules\075_VisitAddendum\1\VisitAddendum.js" />
+    <Content Include="Modules\076_ImageCapture\1\ImageCapture.html" />
+    <Content Include="Modules\076_ImageCapture\1\ImageCapture.js" />
+    <Content Include="Modules\077_RegionalAnesthesia\1\RegionalAnesthesia.css" />
+    <Content Include="Modules\077_RegionalAnesthesia\1\RegionalAnesthesia.html" />
+    <Content Include="Modules\077_RegionalAnesthesia\1\RegionalAnesthesia.js" />
+    <Content Include="Modules\078_SpinalEpiduralAnesthesia\1\SpinalEpiduralAnesthesia.css" />
+    <Content Include="Modules\078_SpinalEpiduralAnesthesia\1\SpinalEpiduralAnesthesia.html" />
+    <Content Include="Modules\078_SpinalEpiduralAnesthesia\1\SpinalEpiduralAnesthesia.js" />
+    <Content Include="Modules\079_DocumentDisplay\1\DocumentDisplay.css" />
+    <Content Include="Modules\079_DocumentDisplay\1\DocumentDisplay.html" />
+    <Content Include="Modules\079_DocumentDisplay\1\DocumentDisplay.js" />
+    <Content Include="Modules\080_TimeOut\1\TimeOut.css" />
+    <Content Include="Modules\080_TimeOut\1\TimeOut.html" />
+    <Content Include="Modules\080_TimeOut\1\TimeOut.js" />
+    <Content Include="Modules\081_SupplyUsed\1\SupplyUsed.css" />
+    <Content Include="Modules\081_SupplyUsed\1\SupplyUsed.html" />
+    <Content Include="Modules\081_SupplyUsed\1\SupplyUsed.js" />
+    <Content Include="Modules\082_PatientEducation\1\PatientEducation.html" />
+    <Content Include="Modules\082_PatientEducation\1\PatientEducation.js" />
+    <Content Include="Modules\083_ProphylacticAntibioticAdministration\1\ProphylacticAntibioticAdministration.css" />
+    <Content Include="Modules\083_ProphylacticAntibioticAdministration\1\ProphylacticAntibioticAdministration.html" />
+    <Content Include="Modules\083_ProphylacticAntibioticAdministration\1\ProphylacticAntibioticAdministration.js" />
+    <Content Include="Modules\084_ColonDecompression\1\ColonDecompression.css" />
+    <Content Include="Modules\084_ColonDecompression\1\ColonDecompression.html" />
+    <Content Include="Modules\084_ColonDecompression\1\ColonDecompression.js" />
+    <Content Include="Modules\085_AnesthesiaStart\1\AnesthesiaStart.css" />
+    <Content Include="Modules\085_AnesthesiaStart\1\AnesthesiaStart.html" />
+    <Content Include="Modules\085_AnesthesiaStart\1\AnesthesiaStart.js" />
+    <Content Include="Modules\086_AnesthesiaStop\1\AnesthesiaStop.css" />
+    <Content Include="Modules\086_AnesthesiaStop\1\AnesthesiaStop.html" />
+    <Content Include="Modules\086_AnesthesiaStop\1\AnesthesiaStop.js" />
+    <Content Include="Modules\087_LabPathReview\1\LabPathReview.html" />
+    <Content Include="Modules\087_LabPathReview\1\LabPathReview.js" />
+    <Content Include="Modules\088_HistoryAndPhysical\1\HistoryAndPhysical.css" />
+    <Content Include="Modules\088_HistoryAndPhysical\1\HistoryAndPhysical.html" />
+    <Content Include="Modules\088_HistoryAndPhysical\1\HistoryAndPhysical.js" />
+    <Content Include="Modules\089_ASAClassification\1\ASAClassification.css" />
+    <Content Include="Modules\089_ASAClassification\1\ASAClassification.html" />
+    <Content Include="Modules\089_ASAClassification\1\ASAClassification.js" />
+    <Content Include="Modules\090_SurgicalSiteAssessment\1\SurgicalSiteAssessment.css" />
+    <Content Include="Modules\090_SurgicalSiteAssessment\1\SurgicalSiteAssessment.html" />
+    <Content Include="Modules\090_SurgicalSiteAssessment\1\SurgicalSiteAssessment.js" />
+    <Content Include="Modules\091_Traction\1\Traction.css" />
+    <Content Include="Modules\091_Traction\1\Traction.html" />
+    <Content Include="Modules\091_Traction\1\Traction.js" />
+    <Content Include="Modules\092_OperativeReport\1\OperativeReport.css" />
+    <Content Include="Modules\092_OperativeReport\1\OperativeReport.html" />
+    <Content Include="Modules\092_OperativeReport\1\OperativeReport.js" />
+    <Content Include="Modules\093_Document\1\Document.css" />
+    <Content Include="Modules\093_Document\1\Document.html" />
+    <Content Include="Modules\093_Document\1\Document.js" />
+    <Content Include="Modules\094_ProcedureStart\1\ProcedureStart.html" />
+    <Content Include="Modules\094_ProcedureStart\1\ProcedureStart.js" />
+    <Content Include="Modules\095_ProcedureStop\1\ProcedureStop.html" />
+    <Content Include="Modules\095_ProcedureStop\1\ProcedureStop.js" />
+    <Content Include="Modules\096_ColonoscopyTimes\1\ColonoscopyTimes.html" />
+    <Content Include="Modules\096_ColonoscopyTimes\1\ColonoscopyTimes.js" />
+    <Content Include="Modules\097_HistoryAndPhysicalAttestation\1\HistoryAndPhysicalAttestation.css" />
+    <Content Include="Modules\097_HistoryAndPhysicalAttestation\1\HistoryAndPhysicalAttestation.html" />
+    <Content Include="Modules\097_HistoryAndPhysicalAttestation\1\HistoryAndPhysicalAttestation.js" />
+    <Content Include="Modules\098_TourniquetSimple\1\TourniquetSimple.css" />
+    <Content Include="Modules\098_TourniquetSimple\1\TourniquetSimple.html" />
+    <Content Include="Modules\098_TourniquetSimple\1\TourniquetSimple.js" />
+    <Content Include="Modules\099_InHouseLabResults\1\InHouseLabResults.css" />
+    <Content Include="Modules\099_InHouseLabResults\1\InHouseLabResults.html" />
+    <Content Include="Modules\099_InHouseLabResults\1\InHouseLabResults.js" />
+    <Content Include="Modules\100_AnesthesiaPostOpAssessment\1\AnesthesiaPostOpAssessment.css" />
+    <Content Include="Modules\100_AnesthesiaPostOpAssessment\1\AnesthesiaPostOpAssessment.html" />
+    <Content Include="Modules\100_AnesthesiaPostOpAssessment\1\AnesthesiaPostOpAssessment.js" />
+    <Content Include="Modules\101_PatientSafetyMeasures\1\PatientSafetyMeasures.html" />
+    <Content Include="Modules\101_PatientSafetyMeasures\1\PatientSafetyMeasures.js" />
+    <Content Include="Modules\102_PostAnesthesiaAirway\1\PostAnesthesiaAirway.css" />
+    <Content Include="Modules\102_PostAnesthesiaAirway\1\PostAnesthesiaAirway.html" />
+    <Content Include="Modules\102_PostAnesthesiaAirway\1\PostAnesthesiaAirway.js" />
+    <Content Include="Modules\103_BloodBloodProductAdministration\1\BloodBloodProductAdministration.css" />
+    <Content Include="Modules\103_BloodBloodProductAdministration\1\BloodBloodProductAdministration.html" />
+    <Content Include="Modules\103_BloodBloodProductAdministration\1\BloodBloodProductAdministration.js" />
+    <Content Include="Modules\104_FireRiskAssessment\1\FireRiskAssessment.css" />
+    <Content Include="Modules\104_FireRiskAssessment\1\FireRiskAssessment.html" />
+    <Content Include="Modules\104_FireRiskAssessment\1\FireRiskAssessment.js" />
+    <Content Include="Modules\105_Consent\1\Consent.css" />
+    <Content Include="Modules\105_Consent\1\Consent.html" />
+    <Content Include="Modules\105_Consent\1\Consent.js" />
+    <Content Include="Modules\106_LearningAssessment\1\LearningAssessment.css" />
+    <Content Include="Modules\106_LearningAssessment\1\LearningAssessment.html" />
+    <Content Include="Modules\106_LearningAssessment\1\LearningAssessment.js" />
+    <Content Include="Modules\107_ConsciousSedation\1\ConsciousSedation.css" />
+    <Content Include="Modules\107_ConsciousSedation\1\ConsciousSedation.html" />
+    <Content Include="Modules\107_ConsciousSedation\1\ConsciousSedation.js" />
+    <Content Include="Modules\108_Discharge\1\Discharge.css" />
+    <Content Include="Modules\108_Discharge\1\Discharge.html" />
+    <Content Include="Modules\108_Discharge\1\Discharge.js" />
+    <Content Include="Modules\109_ProblemList\1\ProblemList.css" />
+    <Content Include="Modules\109_ProblemList\1\ProblemList.html" />
+    <Content Include="Modules\109_ProblemList\1\ProblemList.js" />
+    <Content Include="Modules\110_Explant\1\Explant.css" />
+    <Content Include="Modules\110_Explant\1\Explant.html" />
+    <Content Include="Modules\110_Explant\1\Explant.js" />
+    <Content Include="Modules\111_PostAnesthesiaCare\1\PostAnesthesiaCare.css" />
+    <Content Include="Modules\111_PostAnesthesiaCare\1\PostAnesthesiaCare.html" />
+    <Content Include="Modules\111_PostAnesthesiaCare\1\PostAnesthesiaCare.js" />
+    <Content Include="Modules\112_PostOpCare\1\PostOpCare.css" />
+    <Content Include="Modules\112_PostOpCare\1\PostOpCare.html" />
+    <Content Include="Modules\112_PostOpCare\1\PostOpCare.js" />
+    <Content Include="Modules\113_AnesthesiaHistory\1\AnesthesiaHistory.css" />
+    <Content Include="Modules\113_AnesthesiaHistory\1\AnesthesiaHistory.html" />
+    <Content Include="Modules\113_AnesthesiaHistory\1\AnesthesiaHistory.js" />
+    <Content Include="Modules\114_PatientTransfer\1\PatientTransfer.css" />
+    <Content Include="Modules\114_PatientTransfer\1\PatientTransfer.html" />
+    <Content Include="Modules\114_PatientTransfer\1\PatientTransfer.js" />
+    <Content Include="Modules\115_InjectionInformation\1\InjectionInformation.css" />
+    <Content Include="Modules\115_InjectionInformation\1\InjectionInformation.html" />
+    <Content Include="Modules\115_InjectionInformation\1\InjectionInformation.js" />
+    <Content Include="Modules\116_BloodGlucose\1\BloodGlucose.html" />
+    <Content Include="Modules\116_BloodGlucose\1\BloodGlucose.js" />
+    <Content Include="Modules\117_CLOtest\1\CLOtest.css" />
+    <Content Include="Modules\117_CLOtest\1\CLOtest.html" />
+    <Content Include="Modules\117_CLOtest\1\CLOtest.js" />
+    <Content Include="Modules\118_InstrumentTrayTracking\1\InstrumentTrayTracking.html" />
+    <Content Include="Modules\118_InstrumentTrayTracking\1\InstrumentTrayTracking.js" />
+    <Content Include="Modules\119_NoteSimple\1\NoteSimple.html" />
+    <Content Include="Modules\119_NoteSimple\1\NoteSimple.js" />
+    <Content Include="Modules\120_VersedFentanylSummary\1\VersedFentanylSummary.html" />
+    <Content Include="Modules\120_VersedFentanylSummary\1\VersedFentanylSummary.js" />
+    <Content Include="Modules\121_QuestionsOptional\1\QuestionsOptional.html" />
+    <Content Include="Modules\121_QuestionsOptional\1\QuestionsOptional.js" />
+    <Content Include="Modules\122_QuestionsHistoric\1\QuestionsHistoric.html" />
+    <Content Include="Modules\122_QuestionsHistoric\1\QuestionsHistoric.js" />
+    <Content Include="Modules\123_RegistrationStart\1\RegistrationStart.css" />
+    <Content Include="Modules\123_RegistrationStart\1\RegistrationStart.html" />
+    <Content Include="Modules\123_RegistrationStart\1\RegistrationStart.js" />
+    <Content Include="Modules\124_RegistrationEnd\1\RegistrationEnd.html" />
+    <Content Include="Modules\124_RegistrationEnd\1\RegistrationEnd.js" />
+    <Content Include="Modules\125_DischargeInstructions\1\DischargeInstructions.css" />
+    <Content Include="Modules\125_DischargeInstructions\1\DischargeInstructions.html" />
+    <Content Include="Modules\125_DischargeInstructions\1\DischargeInstructions.js" />
+    <Content Include="Modules\126_BedsideVisit\1\BedsideVisit.html" />
+    <Content Include="Modules\126_BedsideVisit\1\BedsideVisit.js" />
+    <Content Include="Modules\128_PhysicianOrders%282%29\1\PhysicianOrders%282%29.css" />
+    <Content Include="Modules\128_PhysicianOrders%282%29\1\PhysicianOrders%282%29.html" />
+    <Content Include="Modules\128_PhysicianOrders%282%29\1\PhysicianOrders%282%29.js" />
+    <Content Include="Modules\129_AnesthesiaOrders%282%29\1\AnesthesiaOrders%282%29.css" />
+    <Content Include="Modules\129_AnesthesiaOrders%282%29\1\AnesthesiaOrders%282%29.html" />
+    <Content Include="Modules\129_AnesthesiaOrders%282%29\1\AnesthesiaOrders%282%29.js" />
+    <Content Include="Modules\130_ProgressNote\1\ProgressNote.html" />
+    <Content Include="Modules\130_ProgressNote\1\ProgressNote.js" />
+    <Content Include="parameters.xml" />
+    <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\img\Thumbs.db" />
+    <Content Include="Scripts\ChartDesigner\AnesthesiaMedicationDesigner.js" />
+    <Content Include="Scripts\ChartDesigner\BLOCAliasDesigner.js" />
+    <Content Include="Scripts\ChartDesigner\CenterConfiguration.js" />
+    <Content Include="Scripts\ChartDesigner\chartTemplateGrid.js" />
+    <Content Include="Scripts\ChartDesigner\ChartDesigner.js" />
+    <Content Include="Scripts\ChartDesigner\ChartTemplateDesigner.js" />
+    <Content Include="Scripts\ChartDesigner\ChartTemplateModuleConfig.js" />
+    <Content Include="Scripts\ChartDesigner\ConsentDesigner.js" />
+    <Content Include="Scripts\ChartDesigner\PrintSetDesigner.js" />
+    <Content Include="Scripts\ChartDesigner\QuestionTemplateDesigner.js" />
+    <Content Include="Scripts\ChartDesigner\QuestionnaireTemplateDesigner.js" />
+    <Content Include="Scripts\DrugDatabase\DrugAllergenAliasModel.js" />
+    <Content Include="Scripts\DrugDatabase\DrugAllergenInactiveAliasModel.js" />
+    <Content Include="Scripts\Framework\bindings.js" />
+    <Content Include="Scripts\Framework\Components\actandupdatebutton.js" />
+    <Content Include="Scripts\Framework\Components\administerset.js" />
+    <Content Include="Scripts\Framework\Components\anesthesia-grid.js" />
+    <Content Include="Scripts\Framework\Components\applysignature.js" />
+    <Content Include="Scripts\Framework\Components\button.js" />
+    <Content Include="Scripts\Framework\Components\common.js" />
+    <Content Include="Scripts\Framework\Components\context-menu.js" />
+    <Content Include="Scripts\Framework\Components\email.js" />
+    <Content Include="Scripts\Framework\Components\graph.js" />
+    <Content Include="Scripts\Framework\Components\hamburger.js" />
+    <Content Include="Scripts\Framework\Components\masked-text.js" />
+    <Content Include="Scripts\Framework\Components\module.js" />
+    <Content Include="Scripts\Framework\Components\multiselect.js" />
+    <Content Include="Scripts\Framework\Components\questions.js" />
+    <Content Include="Scripts\Framework\Components\rich-text.js" />
+    <Content Include="Scripts\Framework\Components\ro-grid.js" />
+    <Content Include="Scripts\Framework\Components\ro-sortable-grid.js" />
+    <Content Include="Scripts\Framework\Components\ro-typeahead.js" />
+    <Content Include="Scripts\Framework\Components\select.js" />
+    <Content Include="Scripts\Framework\Components\signature.js" />
+    <Content Include="Scripts\ChartDesigner\simple-grid.js" />
+    <Content Include="Scripts\Framework\Components\site-side.js" />
+    <Content Include="Scripts\Framework\Components\text-editor.js" />
+    <Content Include="Scripts\Framework\Components\textarea.js" />
+    <Content Include="Scripts\Framework\Components\timepicker.js" />
+    <Content Include="Scripts\Framework\Components\wong-baker.js" />
+    <Content Include="Scripts\Framework\Factories\ChartHomeModelFactory.js" />
+    <Content Include="Scripts\Framework\Factories\ChartModelFactory.js" />
+    <Content Include="Scripts\Framework\Factories\HeaderModelFactory.js" />
+    <Content Include="Scripts\Framework\Factories\HamburgerFactory.js" />
+    <Content Include="Scripts\Framework\Factories\ModuleTemplateFactory.js" />
+    <Content Include="Scripts\Framework\Factories\RowModelFactory.js" />
+    <Content Include="Scripts\Framework\Factories\SummaryModelFactory.js" />
+    <Content Include="Scripts\Framework\Factories\TableModelFactory.js" />
+    <Content Include="Scripts\Framework\Factories\UIDictionary.js" />
+    <Content Include="Scripts\Framework\Factories\VisitModelFactory.js" />
+    <Content Include="Scripts\Framework\Factories\WorkflowModelFactory.js" />
+    <Content Include="Scripts\Framework\knockout-statemachine.js" />
+    <Content Include="Scripts\Framework\ModelViews\AuditHistoryModel.js" />
+    <Content Include="Scripts\Framework\ModelViews\ChartHomeModel.js" />
+    <Content Include="Scripts\Framework\ModelViews\ChartModel.js" />
+    <Content Include="Scripts\Framework\ModelViews\ControlContext.js" />
+    <Content Include="Scripts\Framework\ModelViews\HeaderModel.js" />
+    <Content Include="Scripts\Framework\ModelViews\ModuleStatusModel.js" />
+    <Content Include="Scripts\Framework\ModelViews\PinChartModel.js" />
+    <Content Include="Scripts\Framework\ModelViews\PinnedItemsModel.js" />
+    <Content Include="Scripts\Framework\ModelViews\QuickChartDeleteModel.js" />
+    <Content Include="Scripts\Framework\ModelViews\QuickChartHandoffModel.js" />
+    <Content Include="Scripts\Framework\ModelViews\QuickChartInfoModel.js" />
+    <Content Include="Scripts\Framework\ModelViews\QuickChartRecordModel.js" />
+    <Content Include="Scripts\Framework\ModelViews\QuickChartTemplatesModel.js" />
+    <Content Include="Scripts\Framework\ModelViews\SignalRConnection.js" />
+    <Content Include="Scripts\Framework\ModelViews\SummaryModel.js" />
+    <Content Include="Scripts\Framework\ModelViews\UpdateRouter.js" />
+    <Content Include="Scripts\Framework\ModelViews\VisitModel.js" />
+    <Content Include="Scripts\Framework\ModelViews\WorkflowStatusModel.js" />
+    <Content Include="Scripts\Framework\Observables\liveobservable.js" />
+    <Content Include="Scripts\Framework\main.js" />
+    <Content Include="Scripts\Framework\Factories\ModuleModelFactory.js" />
+    <Content Include="Scripts\Framework\ModelViews\ModuleModel.js" />
+    <Content Include="Scripts\Framework\ModelViews\ModuleTemplate.js" />
+    <Content Include="Scripts\Framework\ModelViews\RowModel.js" />
+    <Content Include="Scripts\Framework\ModelViews\TableModel.js" />
+    <Content Include="Scripts\Framework\ModelViews\UIFieldModel.js" />
+    <Content Include="Scripts\Framework\ModelViews\WorkflowModel.js" />
+    <Content Include="Scripts\Framework\Observables\bufferedObservable.js" />
+    <Content Include="Scripts\Framework\Observables\observableDate.js" />
+    <Content Include="Scripts\Framework\Observables\observableNumeric.js" />
+    <Content Include="Scripts\Framework\ajax.js" />
+    <Content Include="Scripts\Framework\Components\checkbox.js" />
+    <Content Include="Scripts\Framework\Components\datepicker.js" />
+    <Content Include="Scripts\Framework\Components\error-ball.js" />
+    <Content Include="Scripts\Framework\Components\field-label.js" />
+    <Content Include="Scripts\Framework\Components\live-grid.js" />
+    <Content Include="Scripts\Framework\Components\numeric.js" />
+    <Content Include="Scripts\Framework\Components\camera.js" />
+    <Content Include="Scripts\Framework\Components\picture.js" />
+    <Content Include="Scripts\Framework\Components\radio-button.js" />
+    <Content Include="Scripts\Framework\Components\textbox.js" />
+    <Content Include="Scripts\Framework\Components\typeahead.js" />
+    <Content Include="Scripts\Framework\dialogs.js" />
+    <Content Include="Scripts\Framework\util.js" />
+    <Content Include="Scripts\Libraries\chartist-plugins.js" />
+    <Content Include="Scripts\Libraries\chartist.js" />
+    <Content Include="Scripts\Libraries\chartist.min.js" />
+    <Content Include="Scripts\Libraries\exif.js" />
+    <Content Include="Scripts\Libraries\fabric.js" />
+    <Content Include="Scripts\Libraries\froala.min.js" />
+    <Content Include="Scripts\Libraries\hammer.min.js" />
+    <Content Include="Scripts\Libraries\hashtable.js" />
+    <Content Include="Scripts\Libraries\jquery-ui.js" />
+    <Content Include="Scripts\Libraries\jquery-ui.min.js" />
+    <Content Include="Scripts\Libraries\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\Libraries\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\Libraries\bootstrap.js" />
+    <Content Include="Scripts\Framework\echart-frame.js" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\OpenSans-Regular-webfont.eot" />
+    <Content Include="Content\fonts\OpenSans-Regular-webfont.ttf" />
+    <Content Include="Content\fonts\OpenSans-Regular-webfont.woff" />
+    <Content Include="Content\fonts\hst-icons.eot" />
+    <Content Include="Content\fonts\hst-icons.ttf" />
+    <Content Include="Content\fonts\hst-icons.woff" />
+    <Content Include="Properties\DataSources\EHRProxy.Updates.LiveEditRequest.datasource" />
+    <Content Include="Certs\HSTSTS.pfx" />
+    <Content Include="Content\css\site.scss" />
+    <Content Include="Content\css\site.css.map">
+      <DependentUpon>site.css</DependentUpon>
+    </Content>
+    <Content Include="App_Code\eChartHelper.cshtml" />
+    <Content Include="App_Code\eChartMVC.cshtml" />
+    <Content Include="App_Code\ChartModal.cshtml" />
+    <Content Include="App_Code\ChartHeaderModal.cshtml" />
+    <Content Include="App_Code\TaskHelper.cshtml" />
+    <Content Include="App_Code\BlocHelper.cshtml" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\css\froala_style.css" />
+    <None Include="Properties\PublishProfiles\EHRBUILD.pubxml" />
+    <None Include="Properties\PublishProfiles\EHRDEV DEBUG.pubxml" />
+    <None Include="Properties\PublishProfiles\EHRDEV.pubxml" />
+    <None Include="Properties\PublishProfiles\EHRQA.pubxml" />
+    <None Include="Properties\PublishProfiles\Production Package.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Scripts\Libraries\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Libraries\jquery-1.10.2.js" />
+    <Content Include="Scripts\Libraries\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\Libraries\jquery-te-1.4.0.min.js" />
+    <Content Include="Scripts\Libraries\jquery.signalR-2.2.0.js" />
+    <Content Include="Scripts\Libraries\jquery.signalR-2.2.0.min.js" />
+    <Content Include="Scripts\Libraries\jquery.transit.min.js" />
+    <Content Include="Scripts\Libraries\knockout-3.4.0.debug.js" />
+    <Content Include="Scripts\Libraries\knockout-3.4.0.min.js" />
+    <Content Include="Scripts\Libraries\knockout-froala.js" />
+    <Content Include="Scripts\Libraries\knockout-paging.js" />
+    <Content Include="Scripts\Libraries\knockout.mapping-latest.js" />
+    <Content Include="Scripts\Libraries\knockout.observableDictionary.js" />
+    <Content Include="Scripts\Framework\live-edit.js" />
+    <Content Include="Scripts\Libraries\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Libraries\moment-with-locales.js" />
+    <Content Include="Scripts\Libraries\moment.js" />
+    <Content Include="Scripts\Libraries\moment.min.js" />
+    <Content Include="Scripts\Libraries\mustache-2.3.0.js" />
+    <Content Include="Scripts\Libraries\npm.js" />
+    <Content Include="Scripts\Libraries\q.js" />
+    <Content Include="Scripts\Libraries\require.js" />
+    <Content Include="Scripts\Libraries\respond.js" />
+    <Content Include="Scripts\Libraries\respond.min.js" />
+    <Content Include="Scripts\Libraries\scripts.js" />
+    <Content Include="Scripts\Libraries\select2.js" />
+    <Content Include="Scripts\Libraries\signaturepad.js" />
+    <Content Include="Scripts\Libraries\Sortable.js" />
+    <Content Include="Scripts\Libraries\Sortable.min.js" />
+    <Content Include="Scripts\Libraries\string.js" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="Scripts\Libraries\jquery-1.10.2.min.map" />
+    <None Include="Service References\GoldStandardService\configuration91.svcinfo" />
+    <None Include="Service References\GoldStandardService\configuration.svcinfo" />
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ADRAdverseReactionsByDrugClassificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ADRAdverseReactionsByDrugResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ADRDrugsByAdverseReactionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ADRDrugsByDiagnosisResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ADRMatchDrugsToAdverseReactionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.AdverseReactionDetailType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.AdverseReactionDrugMonographResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.BrandGenericEnum.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ClinicalInteractionPackageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ClinicalInteractionProductType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ClinicalIVCompatibilityResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ClinicalMarketedSpecificProductType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ClinicalResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.CodeDescriptionType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.CompanyIdentifierEnum.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.CompanyType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ConditionIdentifierInfoType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ContentMonographResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ContentMonographSectionXMLResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ContentMonographXMLResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ContentPatientEducationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.CPTherapeuticClassificationTreeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DetailPackageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DetailPackageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DetailProductResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DetailProductType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DoseCheckByIngredientResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DoseCheckBySpecificProductResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DoseCheckResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DrugConditionInfoType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DrugDiseaseContraindicationsByDrugResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DrugDiseaseDrugsByContraindicationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DrugDiseaseDrugsByIndicationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DrugDiseaseIndicationsByDrugResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DrugDiseaseMatchDrugToDiagnosisResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DrugDiseaseScreeningResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DrugIdentifierInfoType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DrugIdentifierLanguageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DrugLabDrugInterferenceType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DrugLabInterferenceByDrugResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DrugLabInterferenceByLabResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DrugLabLoincInterferenceType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DrugLabParametersToMonitorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DrugLabParametersToMonitorType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DrugLabRecommendedValuesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DrugLabRecommendedValuesType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DrugsByContraindicationType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DrugsByDiagnosisType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.DrugsByIndicationType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.FilterComboPreferencesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.FilterPreferencesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.GenderEnum.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.GSTermResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.IdentifierNameType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.IngredientType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.IVCompatibilityByAdministrationDetailType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.IVCompatibilityByDrugResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.IVCompatibilityDrugResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.IVCompatibilityParenteralNutritionByDrugResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.IVCompatibilitySolutionsByDrugResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.LactationAlternateDrugsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListAGSBeersQualityOfEvidencesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListAGSBeersStrengthOfRecommendationsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListAllergySubstanceClassesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListBoxedWarningsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListBrandGenericStatusesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListCoatingsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListColorsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListCompaniesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListCPTherapeuticClassificationsByProductResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListCPTherapeuticClassificationTreeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListDESIStatusesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListDocumentationTypesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListDoseFormsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListDrugInteractionReferencesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListFederalDEAClassificationsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListFederalResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListFederalType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListFlavorsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListGenericProductClinicalsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListGSTermsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListIngredientNameSourcesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListIngredientsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListIVContainerMaterialsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListLanguagesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListLegendStatusesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListLicensesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListLifestyleInteractionReferencesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListMarketClassificationByProductResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListMarketedProductsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListMedGuidesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListMorphineEquivalentDosingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListNCPDPBillingUnitsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListOrderableNamesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListPackagePricesCurrentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListPackagePricesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListPackagesByCompanyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListPackagesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListPatientPackageInsertsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListPharmEquivalentProductsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListPregnancyRatingsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListPriceChangeReasonsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListPriceTypesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListProductActiveIngredientsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListProductAttributesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListProductImagesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListProductInactiveIngredientsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListProductNamesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListProductNameTypesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListProductsByCompanyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListProductsByCPTherapeuticClassificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListProductsByMarketClassificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListProductsByRxNormResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListProductsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListProductStorageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListREMSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListRoutesOfAdministrationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListRxNormByProductResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListScriptFormsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListSeverityTypesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListShapesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListSigAdditionalInstructionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListSigAdminMethodsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListSigFrequenciesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListSigPrescribingReasonsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListSigRouteCategoriesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListSigRoutesOfAdministrationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListSigUnitsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListSpecificProductsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListStateDEAClassificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListStateLegendStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListStatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListStorageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListSubCandidateProductsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListTherapeuticConceptTreeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListTherapeuticEquivalenceCodesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListUnitDoseIndicatorsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListUnitsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListWarningLabelsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ListWarningLabelVendorsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.MedProductFilterType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.MedProductType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.MonographSectionConditionType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.MonographSectionXmlType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.MonographType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.MonographXmlType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.NotCheckedType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.OrderableNameType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.PackageAlternateType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.PackageFilterType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.PackageIdentifierType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.PackageProductConceptGpcCpNumType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.PackageProductType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.PackageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.PatientEducationSheetType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.PregnancyAndLactationByDiagnosisResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.PregnancyAndLactationByDrugClassificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.PregnancyAndLactationByDrugResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.PregnancyAndLactationInfoByDiagnosisResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.PregnancyAndLactationResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.PregnancyAndLactationScreeningAlertResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.PrescriptionOrderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.PrescriptionOrderType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.PriceDataType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ProductFilterType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ProductIdentifierNameMarketerType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ProductIdentifierNameType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ProductIdentifierResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ProductIdentifierSearchType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ProductIdentifierType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ProductImageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ProductTEType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ProductType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.RxNormType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ServerDataFileInfoType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ServerInformationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.ServerVersionDetailType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.SigAdditionalInstructionType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.SigAdminMethodType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.SigFilterChoice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.SigFilterChoiceSnomed.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.SigFilterChoiceSnomedIcd9.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.SigFrequencyType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.SigPrescribingReasonType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.SigRouteOfAdministrationType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.SigUnitType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.TherapeuticConceptTree.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.TherapeuticConceptTreeFilter.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GoldStandardService\eChart.GoldStandardService.WarningLabelListType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\GoldStandardService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\ChartSection.cshtml" />
+    <Content Include="Views\Shared\_SchedulePartial.cshtml" />
+    <Content Include="Views\Home\ChartHome.cshtml" />
+    <Content Include="Views\ChartHome\ErrorPage.cshtml" />
+    <Content Include="Views\Shared\_WorkflowMenuPartial.cshtml" />
+    <Content Include="Views\Shared\_ChartHeaderPartial.cshtml" />
+    <Content Include="Views\Shared\_ChartFooterPartial.cshtml" />
+    <Content Include="Views\Shared\_SummaryPartial.cshtml" />
+    <Content Include="Views\Shared\_ChartHomeLayout.cshtml" />
+    <Content Include="Views\Shared\_MenuPartial.cshtml" />
+    <Content Include="Views\Shared\_RdOnlyTemplatesPartial.cshtml" />
+    <Content Include="Views\Shared\Components\_ModuleTemplatePartial.cshtml" />
+    <Content Include="Views\Shared\Components\_PictureTemplatePartial.cshtml" />
+    <Content Include="Views\Shared\Components\_CameraTemplatePartial.cshtml" />
+    <Content Include="Views\Shared\Components\_TimePickerTemplatePartial.cshtml" />
+    <Content Include="Views\Shared\Components\_DatePickerTemplatePartial.cshtml" />
+    <Content Include="Views\Shared\Components\_FieldLabelTemplatePartial.cshtml" />
+    <Content Include="Views\Shared\Components\_ErrorBallTemplatePartial.cshtml" />
+    <Content Include="Views\Shared\Components\_RadioButtonTemplatePartial.cshtml" />
+    <Content Include="Views\Shared\Components\_CheckboxTemplatePartial.cshtml" />
+    <Content Include="Views\Shared\Components\_NumericTemplatePartial.cshtml" />
+    <Content Include="Views\Shared\Components\_TextboxTemplatePartial.cshtml" />
+    <Content Include="Views\Shared\Components\_TextEditorTemplatePartial.cshtml" />
+    <Content Include="Views\Shared\Components\_ContextMenuTemplatePartial.cshtml" />
+    <Content Include="Views\Shared\Components\_GridTemplatePartial.cshtml" />
+    <Content Include="Views\Shared\Components\_TypeaheadTemplatePartial.cshtml" />
+    <Content Include="Views\Shared\Components\_SelectboxTemplatePartial.cshtml" />
+    <Content Include="Views\Shared\Components\_SignatureTemplatePartial.cshtml" />
+    <Content Include="Views\Shared\Components\_HamburgerMenuTemplatePartial.cshtml" />
+    <Content Include="Views\Shared\Components\_QuestionsTemplatePartial.cshtml" />
+    <Content Include="Views\Home\LogoutPage.cshtml" />
+    <Content Include="Views\Shared\_BlankLayout.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\RoomViewModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\PhysicianViewModel.cshtml" />
+    <Content Include="Views\Home\_FiltersPartial.cshtml" />
+    <Content Include="Views\Home\SessionTimeout.cshtml" />
+    <Content Include="Views\Shared\_RemoveModulePartial.cshtml" />
+    <Content Include="Views\Shared\_InActiveModule.cshtml" />
+    <Content Include="Views\Shared\Components\_ButtonTemplatePartial.cshtml" />
+    <Content Include="Views\Shared\_AddModuleToWorkflow.cshtml" />
+    <Content Include="Views\Shared\_ReActiveBloc.cshtml" />
+    <Content Include="Views\Home\_SearchHeader.cshtml" />
+    <Content Include="Views\Shared\Components\_TextareaTemplatePartial.cshtml" />
+    <Content Include="Views\Home\_VisiterResultPartial.cshtml" />
+    <Content Include="Views\Home\_ErrorPartial.cshtml" />
+    <Content Include="Views\Home\_ReattachVisitPartial.cshtml" />
+    <Content Include="Views\Home\_ComingSoonPartial.cshtml" />
+    <Content Include="Views\Chart\_WorkflowConfig.cshtml" />
+    <Content Include="Views\Chart\_WorkflowTemplates.cshtml" />
+    <Content Include="Views\Chart\_BundleTemplates.cshtml" />
+    <Content Include="Views\Chart\_ExistingBundles.cshtml" />
+    <Content Include="Views\Shared\_SystemError.cshtml" />
+    <Content Include="Views\Shared\Components\_HyperlinkTemplatePartial.cshtml" />
+    <None Include="Service References\GoldStandardService\Schema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GoldStandardService\server.wsdl" />
+    <Content Include="Views\Shared\Components\_ActAndUpdateButtonTemplatePartial.cshtml" />
+    <Content Include="Views\Chart\_RemoveWorkflowConfirm.cshtml" />
+    <Content Include="Views\Shared\Components\_ApplySignatureTemplatePartial.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Shared\Components\_WongBakerTemplatePartial.cshtml" />
+    <Content Include="Views\Document\GetPatientDocument.cshtml" />
+    <Content Include="Views\Shared\Components\_AdministerSetTemplatePartial.cshtml" />
+    <Content Include="Views\Shared\_RdOnlySortableGridTemplatePartial.cshtml" />
+    <Content Include="Views\Shared\_ChartHeaderHomePartial.cshtml" />
+    <Content Include="Views\Shared\_QuestionnaireTemplateDesignerPartial.cshtml" />
+    <Content Include="Views\Shared\_QuestionTemplateDesignerPartial.cshtml" />
+    <Content Include="Views\Shared\_QuestionnaireTemplatesPartial.cshtml" />
+    <Content Include="Views\Shared\_QuestionTemplatesPartial.cshtml" />
+    <Content Include="Views\Shared\_AdministrationPartial.cshtml" />
+    <Content Include="Views\Shared\Components\_SimpleGridTemplatePartial.cshtml" />
+    <Content Include="Views\ChartDesigner\AddQuestionnaireTemplate.cshtml" />
+    <Content Include="Views\ChartDesigner\AddQuestionTemplate.cshtml" />
+    <Content Include="Views\ChartDesigner\UpdateQuestionnaireTemplate.cshtml" />
+    <Content Include="Views\ChartDesigner\UpdateQuestionTemplate.cshtml" />
+    <Content Include="Views\ChartDesigner\ViewQuestionnaireTemplates.cshtml" />
+    <Content Include="Views\ChartDesigner\ViewQuestionTemplates.cshtml" />
+    <Content Include="Views\ChartDesigner\ViewQuestionTemplate.cshtml" />
+    <Content Include="Views\ChartDesigner\ViewQuestionnaireTemplate.cshtml" />
+    <Content Include="Views\Shared\Components\_ChartTemplateTemplatePartial.cshtml" />
+    <Content Include="Views\ChartDesigner\AddChartTemplate.cshtml" />
+    <Content Include="Views\Shared\_RdOnlyTypeaheadTemplatePartial.cshtml" />
+    <Content Include="Views\ChartDesigner\ViewChartTemplates.cshtml" />
+    <Content Include="Views\ChartDesigner\ViewChartTemplate.cshtml" />
+    <Content Include="Views\Shared\_PreviousTabPartial.cshtml" />
+    <Content Include="Views\Shared\_CurrentTabPartial.cshtml" />
+    <Content Include="Views\ChartDesigner\AddConsentMapping.cshtml" />
+    <Content Include="Views\ChartDesigner\ViewConsentMappings.cshtml" />
+    <Content Include="Views\Shared\_LabResultsReconciliation.cshtml" />
+    <Content Include="Views\Shared\Components\_GraphTemplatePartial.cshtml" />
+    <Content Include="Views\Shared\Components\_AnesthesiaGridTemplatePartial.cshtml" />
+    <Content Include="Views\ChartDesigner\UpdateChartTemplateModuleConfig.cshtml" />
+    <Content Include="Views\Home\AccessDenied.cshtml" />
+    <Content Include="Views\Shared\Components\_EmailboxTemplatePartial.cshtml" />
+    <Content Include="Views\ChartDesigner\UpdateConsentMapping.cshtml" />
+    <Content Include="Views\ChartDesigner\ImportChartTemplate.cshtml" />
+    <Content Include="Views\Home\_TriageOperativeReports.cshtml" />
+    <Content Include="Views\Home\_OperativeReportsResultsPartial.cshtml" />
+    <Content Include="Views\Shared\_LoginToolbar.cshtml" />
+    <Content Include="Views\Home\_TaskManagerPartial.cshtml" />
+    <Content Include="Views\DrugDatabase\ViewMedicationAliases.cshtml" />
+    <Content Include="Views\DrugDatabase\ViewAllergenAliases.cshtml" />
+    <Content Include="Views\DrugDatabase\ViewInactiveAliases.cshtml" />
+    <Content Include="Views\Home\_HomePartial.cshtml" />
+    <Content Include="Views\Home\GetScheduleLegend.cshtml" />
+    <Content Include="Views\Shared\Components\_RichTextTemplatePartial.cshtml" />
+    <Content Include="Views\ChartDesigner\UpdateBLOCAlias.cshtml" />
+    <Content Include="Views\ChartDesigner\ViewBLOCAliases.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\ChartDesigner\ViewDischargeInstructions.cshtml" />
+    <Content Include="Views\ChartDesigner\EditDischargeInstruction.cshtml" />
+    <Content Include="Views\ChartDesigner\ViewDischargeInstructionSets.cshtml" />
+    <Content Include="Views\Shared\_DialogsPartial.cshtml" />
+    <Content Include="Views\ChartDesigner\EditDischargeInstructionSet.cshtml" />
+    <Content Include="Views\ChartDesigner\ViewPrintSets.cshtml" />
+    <Content Include="Views\ChartDesigner\AddPrintSet.cshtml" />
+    <Content Include="Views\Shared\_PinPanelPartial.cshtml" />
+    <Content Include="Views\ChartDesigner\UpdatePrintSet.cshtml" />
+    <Content Include="Views\Home\_PinnedPartial.cshtml" />
+    <Content Include="Views\ChartDesigner\ViewPrintSet.cshtml" />
+    <Content Include="Views\Home\_TaskManager.cshtml" />
+    <Content Include="Views\Home\_TaskManagerAdminViewPartial.cshtml" />
+    <Content Include="Views\Home\_AccessDeniedPartial.cshtml" />
+    <Content Include="Views\ChartDesigner\ViewAnesthesiaMedications.cshtml" />
+    <Content Include="Views\ChartDesigner\AddAnesthesiaMedication.cshtml" />
+    <Content Include="Views\ChartDesigner\UpdateCenterConfiguration.cshtml" />
+    <Content Include="Views\ChartDesigner\AddAnesthesiaGas.cshtml" />
+    <Content Include="Views\ChartDesigner\ViewAnesthesiaGases.cshtml" />
+    <Content Include="Views\Home\_OperativeReports.cshtml" />
+    <Content Include="Views\Home\_UnAssignOperativeReportsPartial.cshtml" />
+    <Content Include="Views\Shared\Components\_MaskedEditPartial.cshtml" />
+    <Content Include="Views\Shared\Components\_BodySiteSideTemplatePartial.cshtml" />
+    <Content Include="Views\Chart\_AddWorkflowToArea.cshtml" />
+    <Content Include="Views\Chart\_ReActiveWorkflow.cshtml" />
+    <None Include="Web.IIS_DEBUG_EHRDEV.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.IIS_Express.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="Views\Shared\_ModulesPartial.cshtml" />
+    <None Include="Web.IIS_Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.IIS_Release_EHRBUILD.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.IIS_RELEASE_EHRDEV.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.IIS_Release_EHRQA.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.IIS_Release_IIS_DEV.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\" />
+    <Folder Include="Content\sass\" />
+    <Folder Include="Views\HstBase\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AutoIncrementWebConfig\AutoIncrementWebConfig.csproj">
+      <Project>{87df5435-5a16-45df-92ad-2c55edf17cc6}</Project>
+      <Name>AutoIncrementWebConfig</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EHRProxy\EHRProxy.csproj">
+      <Project>{df8270c7-1e78-40bb-8859-bcbd052fd9fd}</Project>
+      <Name>EHRProxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hst.Core\Hst.Core.csproj">
+      <Project>{0058e554-0550-4182-96bb-5dc57bc7315d}</Project>
+      <Name>Hst.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\typings\apps\hstcommon.ts" />
+    <TypeScriptCompile Include="Scripts\typings\apps\eChartJS.ts" />
+    <TypeScriptCompile Include="Scripts\typings\apps\schedule.ts" />
+    <TypeScriptCompile Include="Scripts\typings\apps\touchjs.ts" />
+    <TypeScriptCompile Include="Scripts\typings\bootstrap\bootstrap.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\hammerjs\hammerjs.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jqueryui\jqueryui.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\moment\moment.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\GoldStandardService\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'IIS_Release|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'IIS_Express|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'IIS_Release_EHRBUILD|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'IIS_Release_IIS_DEV|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'IIS_RELEASE_EHRDEV|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'IIS_Release_EHRQA|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'IIS_DEBUG_EHRDEV|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>if not $(ConfigurationName) == Debug (
+"$(VS120COMNTOOLS)..\IDE\tf" checkout "$(ProjectDir)Web.config"
+"$(ProjectDir)AutoIncrementWebConfig.exe" "$(ProjectDir)Web.config"
+)</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>if not $(ConfigurationName) == Debug (
+"$(VS120COMNTOOLS)..\IDE\tf" checkin "$(ProjectDir)Web.config" /override:"automated build check in" /noprompt /force /comment:"Build check-in"
+)</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

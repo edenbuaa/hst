@@ -1,0 +1,187 @@
+﻿<div class="has-module">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row" data-bind="with: Tables.t_EHR_CommunicationLog.Single">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <field-label params="name: 'PrimaryLanguageCode', colon: false"></field-label>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <typeahead params="name: 'LanguageCode', display: PrimaryLanguangeDescription, search: 'Description', field: PrimaryLanguangeDescription, fieldMap: { 'LanguageCode': PrimaryLanguageCode }, error: 'PrimaryLanguangeDescription', enabled: PrimaryLanguangeEnabled"></typeahead>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" data-bind="visible: IncorrectVisible">
+                        <div class="col-sm-4">
+                            <checkbox params="field: IncorrectLanguage, checkedValue: false, inline: true, enabled: IncorrectEnabled"></checkbox>
+                        </div>
+
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <field-label params="name: 'CorrectLanguageCode', colon: false"></field-label>
+                                </div>
+
+                                <div class="col-sm-8">
+                                    <typeahead params="name: 'LanguageCode', display: CorrectLanguangeDescription, search: 'Description', field: CorrectLanguangeDescription, fieldMap: { 'LanguageCode': CorrectLanguageCode }, error: 'CorrectLanguangeDescription', enabled: CorrectLanguangeEnabled"></typeahead>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="row">
+                                <div class="col-sm-12">Communication Attempts[<span data-bind="text: CountText"></span>]</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <live-grid params="table: 't_EHR_CommunicationLogDetail', fieldSet: 'Communication Log', title: 'Communication Log Detail'">
+                        <live-grid-column ui-field-name='CommunicationTime' data-field="Date"></live-grid-column>
+                        <live-grid-column ui-field-name='CommunicationDate' data-field="Time"></live-grid-column>
+                        <live-grid-column ui-field-name='PerformedByName' data-field="PerformedByName"></live-grid-column>
+                        <live-grid-column ui-field-name='StatusText' data-field="StatusText"></live-grid-column>
+                        <live-grid-column ui-field-name='SpokeWith' data-field="SpokeWith"></live-grid-column>
+                        <live-grid-column ui-field-name='CommunicationNotes' data-field="CommunicationNotes" type="popout-text"></live-grid-column>
+                        <flyout>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <field-label params="name: 'CommunicationDate'"></field-label>
+                                </div>
+                                <div class="col-sm-5">
+                                    <timepicker params="field: CommunicationDate, format: 'HH:mm', error: 'CommunicationDate'"></timepicker>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <field-label params="name: 'PerformedByName'"></field-label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <typeahead params="name: 'Staff', display: PerformedByName, min: 2, search: 'StaffName', field: PerformedByName,
+                                                        fieldMap: {'StaffID': PerformedByID, 'StaffIDType': PerformedByIDType},
+                                                        setButton: le.ta.StaffMe,
+                                                        error: 'PerformedByName'"></typeahead>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <field-label params="name: 'StatusText', colon: false"></field-label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="m005-intact-acne">
+                                                <error-ball params="name: 'CommunicationStatus'"></error-ball>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-body">
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="row">
+                                                                <div class="col-sm-6">
+                                                                    <div class="radio">
+                                                                        <radio-button params="field: CommunicationStatus,
+                                                                                      uiFieldName: 'StatusNoAnswer',
+                                                                                      checkedValue: 1,
+                                                                                      groupName: 'm005-CommunicationStatus',
+                                                                                      updateCallback: $module.StatusCallback,
+                                                                                      updateCallbackParams: CommunicationStatus">
+
+                                                                        </radio-button>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-sm-6">
+                                                                    <div class="radio">
+                                                                        <radio-button params="field: CommunicationStatus,
+                                                                                      uiFieldName: 'StatusLeftMessage',
+                                                                                      checkedValue: 2,
+                                                                                      groupName: 'm005-CommunicationStatus',
+                                                                                      updateCallback: $module.StatusCallback,
+                                                                                      updateCallbackParams: CommunicationStatus">
+
+                                                                        </radio-button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-sm-6">
+                                                                    <div class="radio">
+                                                                        <radio-button params="field: CommunicationStatus, uiFieldName: 'StatusPartiallyCompleted', checkedValue: 3, groupName: 'm005-CommunicationStatus'"></radio-button>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-sm-6">
+                                                                    <div class="radio">
+                                                                        <radio-button params="field: CommunicationStatus, uiFieldName: 'StatusCallCompleted', checkedValue: 4, groupName: 'm005-CommunicationStatus'"></radio-button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <field-label params="name: 'SpokeWith'"></field-label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <textbox params="field: SpokeWith, enabled: SpokeWithEnabled"></textbox>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="m005-intact-acne">
+                                        <error-ball params="name: 'SpokeInPreferredLanguage'"></error-ball>
+                                    </div>
+
+                                    <div class="checkbox">
+                                        <checkbox params="field: SpokeInPreferredLanguage, checkedValue: false, inline: true, enabled: SpokeInPreferredEnabled"></checkbox>
+                                        <!--<checkbox params="field: SpokeInPreferredLanguage, checkedValue: false, inline: true, enabled: NAStatus,updateCallback: $module.StatusCallback"></checkbox>-->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <field-label params="name: 'CommunicationNotes', colon: false"></field-label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <textareabox params="field: CommunicationNotes, rows: 2, error: 'CommunicationNotes'"></textareabox>
+                                </div>
+                            </div>
+                        </flyout>
+                    </live-grid>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" data-bind="with: Tables.t_EHR_CommunicationLog.Single">
+        <div class="col-sm-12">
+            <div class="checkbox">
+                <checkbox params="field: UnableToContactPatient, checkedValue: false, inline: true, enabled: UnableEnabled, updateCallback: $module.StaffCallback"></checkbox><span data-bind="text: StaffText"></span>
+            </div>
+        </div>
+    </div>
+</div>

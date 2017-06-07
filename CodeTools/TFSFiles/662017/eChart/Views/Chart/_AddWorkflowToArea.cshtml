@@ -1,0 +1,68 @@
+﻿@using eChart.ViewModels
+@model WorkflowManagerViewModel
+
+@{
+    var chartKey = Model.ChartKey;
+}
+
+<div class="panel-group" style="margin-top:10px;" id="accordion">
+    @foreach (var item in Model.Areas.OrderBy(p=>p.Name))
+    {
+        var tagID = @item.Name.Replace(" ", "_");
+        var count = Model.WorkflowMenus.Where(w => w.AreaKey == @item.AreaKey).Count();
+
+        <div class="panel panel-default hst-marginbottom1">
+            <div class="panel-heading hst-panel-header">
+                <div class="panel-title hst-panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#@tagID">
+                        <span>@item.Name</span>
+                    </a>
+
+                    @{
+                        var routes = new { chartKey = @chartKey, workflowAreaKey = @item.AreaKey };
+                    }
+                    @{
+                        var linkurl = Url.RouteUrl("GetWorkflowTemplatesPage", routes);
+                    }
+                    <div class="active pull-right">
+                        <span class="hst-badge">@count</span>
+                    </div>
+                </div>
+            </div>
+            <div id="@tagID" class="panel-collapse collapse hst-panel-item">
+
+                <ul class="list-group">
+
+                    @foreach (var workflow in Model.WorkflowMenus.Where(w => w.AreaKey == @item.AreaKey))
+                    {
+                        var parameters = new { workflowKey = @workflow.WorkflowKey, chartKey = @workflow.ChartKey };
+                        var workflowLink = Url.RouteUrl("RemoveWorkflowsPage", parameters);
+                        var tips = string.Format("Remove <{0}> workflow!", workflow.Name);
+
+                        <li class="list-group-item">
+                            <span>@workflow.Name</span>
+                            <a class="active" href="#">
+                                <span class="fa fa-trash-o pull-right" data-toggle="tooltip" title="@tips" aria-hidden="true" onclick="Ehr.Common.openDialog('addMgr', '@workflowLink', 360);"></span>
+                            </a>
+                        </li>
+                    }
+                </ul>
+
+                <div class="hst-panel-op">
+                    <button type="button" class="btn btn-link pull-right" onclick="Ehr.Common.openDialog('addMgr', '@linkurl', 480);">
+                        <i class="fa fa-plus-circle">Add new workflow to area: @item.Name</i>
+                    </button>
+                </div>
+            </div>
+        </div>
+                        }
+
+    <div class="panel panel-default">
+        @{
+            var bundleUrl = Url.RouteUrl("GetBundleTemplatesPage", new { chartKey = @chartKey });
+        }
+        <button type="button" class="btn btn-primary btn-block" style="text-align:left; padding-left:12px" onclick="Ehr.Common.openDialog('addMgr', '@bundleUrl', 480);"><span>Return to OR</span></button>
+    </div>
+</div>
+
+

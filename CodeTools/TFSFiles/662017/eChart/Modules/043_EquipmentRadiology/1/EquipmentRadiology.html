@@ -1,0 +1,137 @@
+﻿<div class="has-module">
+    <div class="row" data-bind="with: Tables.t_EHR_XRay.Single">
+        <div class="col-sm-12">
+           
+
+            <div class="checkbox col-sm-8">
+                <checkbox params="field: PrecautionsObserved, checkedValue: false, inline: true"></checkbox>
+                <error-ball params="name: 'PrecautionsObserved'"></error-ball>
+            </div>
+            
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <live-grid params="table: 't_EHR_XRayDetail', fieldSet: 'Equipment - Radiology', behavior: $module.foodFightBehavior">
+                <live-grid-column ui-field-name='EquipmentType' data-field="EquipmentType"></live-grid-column>
+                <live-grid-column ui-field-name='IdentificationNumber' data-field="IdentificationNumber"></live-grid-column>
+                <live-grid-column ui-field-name='SerialNumber' data-field="SerialNumber"></live-grid-column>
+                <live-grid-column ui-field-name='BodySiteName' data-field="BodySiteName"></live-grid-column>
+                <live-grid-column ui-field-name='BodySideText' data-field="BodySideText"></live-grid-column>
+                <live-grid-column ui-field-name='ExposureTimeText' data-field="ExposureTime"></live-grid-column>
+                <live-grid-column ui-field-name='XRayNotes' data-field="Notes"></live-grid-column>
+                <flyout>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <field-label params="name: 'EquipmentType', colon: false"></field-label>
+                        </div>
+                        <div class="col-sm-8">
+                            <typeahead params="name: 'ItemMasterForXRay',
+                                        display: EquipmentType,
+                                        min: 4,
+                                       search: 'Description',
+                                        field: EquipmentType,
+                                       fieldMap: {
+                                       'InvGroup': InvGroup,
+                                        'ItemCode': ItemCode
+                                       },
+                                        error: 'EquipmentType',
+                                       updateCallback: $module.setIdOption(EquipmentType)"></typeahead>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <field-label params="name: 'IdentificationNumber', colon: false"></field-label>
+                        </div>
+                        <div class="col-sm-8">
+                            <selectbox params="source: 't_ItemEquipment', 
+                                       captionText: 'None',
+                                        displayField: 'IdentificationNumber',
+                                        dataField: ItemEquipKey,
+                                        sourceField: 'ItemEquipKey-IdentificationNumber-InvGroup-ItemCode-SerialNumber',
+                                        fieldMap: {
+                                           'ItemEquipKey': ItemEquipKey, 
+                                           'IdentificationNumber': IdentificationNumber,
+                                            'SerialNumber': SerialNumber
+                                       },
+                                        relationMap: { 
+                                           'InvGroup': InvGroup,
+                                            'ItemCode': ItemCode 
+                                       },
+                                        enabled: UnitEnabled,
+                                        error: 'ItemEquipKey'">
+                            </selectbox>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-top: 15px">
+                        <div class="col-sm-2">
+                            <field-label params="name: 'SerialNumber', colon: false"></field-label>
+                        </div>
+                        <div class="col-sm-8">
+                            <textbox params="field: SerialNumber, error: 'SerialNumber', enabled: SerialEnabled"></textbox>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <field-label params="name: 'BodySiteName', colon: false"></field-label>
+                            <div style="left: 15px;top:50px;position:absolute;">
+                                <field-label params="name: 'BodySideText', colon: false"></field-label>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <site-side params="
+                            site_display:     BodySiteName,
+                            site_field:       BodySiteName,
+                            
+                            site_search: 'BodySiteName',
+                            site_normalized:  false,
+                            site_fieldMap: {
+                                'BodySiteKey':  BodySiteKey,
+                                'BodySide':     BodySide
+                            },
+
+                            side_field:   BodySide,
+                            side_groupName:'g-Side_043',
+                            side_error:'BodySide',
+                            site_error:      'BodySiteName'"></site-side>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <field-label params="name: 'ExposureTime', colon: false"></field-label>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <textbox params="field: ExposureTime, error: 'ExposureTime'"></textbox>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <field-label params="name: 'XRayNotes', colon: false"></field-label>
+                        </div>
+
+                        <div class="col-sm-8">
+                            <textbox params="field: Notes, uiFieldName: 'XRayNotes', error: 'Notes'"></textbox>
+                        </div>
+                    </div>
+                </flyout>
+            </live-grid>
+        </div>
+    </div>
+
+    <div class="row" data-bind="with: Tables.t_EHR_Module.Single">
+        <div class="col-sm-1">
+            <field-label params="name: 'Notes', colon: false"></field-label>
+        </div>
+
+        <div class="col-sm-11">
+            <textareabox params="field: Notes"></textareabox>
+        </div>
+    </div>
+</div>

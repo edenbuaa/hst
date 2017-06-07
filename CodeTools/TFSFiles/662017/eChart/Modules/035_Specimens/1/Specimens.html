@@ -1,0 +1,268 @@
+﻿<div class="has-module">
+    <div class="row">
+        <div class="col-sm-12">
+            <live-grid params="table: 't_EHR_SpecimenDetail', fieldSet: 'Specimens'">
+                <live-grid-column ui-field-name="SpecimenID" data-field="SpecimenID" width="90px"></live-grid-column>
+                <live-grid-column ui-field-name="OrderID" data-field="OrderID" width="110px"></live-grid-column>
+                <live-grid-column ui-field-name="SpecimenDescription" data-field="SpecimenText"></live-grid-column>
+                <!--<live-grid-column ui-field-name="BodySiteName" data-field="BodySiteName" width="80px"></live-grid-column>
+                <live-grid-column ui-field-name="BodySide" data-field="SideText" width="50px"></live-grid-column>
+                <live-grid-column ui-field-name="LabName" data-field="LabName"></live-grid-column>-->
+                <live-grid-column ui-field-name="TestNames" data-field="TestText" width="30%"></live-grid-column>
+
+                <flyout>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <field-label params="name: 'SpecimenID', colon: false"></field-label>
+                        </div>
+
+                        <div class="col-sm-9">
+                            <textbox params="field: SpecimenID, error: 'SpecimenID'"></textbox>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <field-label params="name: 'OrderID', colon: false"></field-label>
+                        </div>
+
+                        <div class="col-sm-9">
+                            <textbox params="field: OrderID, error: 'OrderID'"></textbox>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <field-label params="name: 'SpecimenDescription', colon: false"></field-label>
+                        </div>
+
+                        <div class="col-sm-9">
+                            <textbox params="field: SpecimenDescription, error: 'SpecimenDescription'"></textbox>
+                        </div>
+                    </div>
+
+                    <!--<div class="row">
+                        <div class="col-sm-3">
+                            <field-label params="name: 'BodySiteName', colon: false"></field-label>
+                        </div>
+
+                        <div class="col-sm-9">
+                            <typeahead params="name:'bodysite', min: 3, search: 'BodySiteName',
+                                   field:       BodySiteName, display: BodySiteName,
+                                   fieldMap: {
+                                        'BodySiteKey':  BodySiteKey,
+                                        'BodySide':   BodySide
+                                   }, error: 'BodySiteName'">
+                            </typeahead>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <field-label params="name: 'BodySide', colon: false"></field-label>
+                        </div>
+
+                        <div class="col-sm-9">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="m035-intact-acne">
+                                            <error-ball params="name: 'BodySide'"></error-ball>
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                            <div class="radio">
+                                                <radio-button params="field: BodySide, uiFieldName: 'BodySideLeft', checkedValue: 'L', groupName: 'm035-Side'"></radio-button>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                            <div class="radio">
+                                                <radio-button params="field: BodySide, uiFieldName: 'BodySideRight', checkedValue: 'R', groupName: 'm035-Side'"></radio-button>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                            <div class="radio">
+                                                <radio-button params="field: BodySide, uiFieldName: 'BodySideNA', checkedValue: 'N', groupName: 'm035-Side'"></radio-button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <div class="row">
+                        <div class="col-sm-3">
+
+                            <field-label params="name: 'BodySiteName', colon: false"></field-label>
+                            <div style="left: 15px;top:50px;position:absolute;">
+                                <field-label params="name: 'BodySide', colon: false"></field-label>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-9">
+                            <site-side params="
+                            site_display:     BodySiteName,
+                            site_field:       BodySiteName,
+
+                            site_search: 'BodySiteName',
+                           
+                            site_fieldMap: {
+                                'BodySiteKey':  BodySiteKey,
+                                'BodySide':     BodySide
+                            },
+                            side_options:[{ SideCode:'L', UIFieldName:'BodySideLeft' },
+                                        { SideCode:'R', UIFieldName:'BodySideRight' },
+                                        { SideCode:'N', UIFieldName:'BodySideNA' }],
+                            side_field:   BodySide,
+
+                            side_groupName:'g-Side_035',
+                            side_error:'BodySide',
+                            site_error:      'BodySiteName'"></site-side>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <field-label params="name: 'SpecimenDispositionText', colon: false"></field-label>
+                        </div>
+
+                        <div class="col-sm-9">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="m035-intact-acne">
+                                                <error-ball params="name: 'SpecimenDispositionText'"></error-ball>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-5">
+                                                    <div class="radio">
+                                                        <radio-button params="field: SpecimenDisposition, uiFieldName: 'SpecimenDispositionSentToLab', checkedValue: 1, groupName: 'm035-Disposition'"></radio-button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-7">
+                                                    <div class="radio">
+                                                        <radio-button params="field: SpecimenDisposition, uiFieldName: 'SpecimenDispositionDiscarded', checkedValue: 2, groupName: 'm035-Disposition'"></radio-button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-5">
+                                                    <div class="radio">
+                                                        <radio-button params="field: SpecimenDisposition, uiFieldName: 'SpecimenDispositionGiven', checkedValue: 3, groupName: 'm035-Disposition'"></radio-button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-2">
+                                                    <div class="radio">
+                                                        <radio-button params="field: SpecimenDisposition, uiFieldName: 'SpecimenDispositionOtherText', checkedValue: 4, groupName: 'm035-Disposition'"></radio-button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-5">
+                                                    <textbox params="field: SpecimenDispositionOther, enabled: OtherEnabled, error: 'SpecimenDispositionOther'"></textbox>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <field-label params="name: 'LabName', colon: false"></field-label>
+                        </div>
+
+                        <div class="col-sm-9">
+                            <selectbox params="source: 't_EHR_Lab', captionText: 'None', displayField: 'LabName', dataField: LabKey, sourceField: 'LabKey-LabName', fieldMap: {'LabKey': LabKey, 'LabName': LabName}, error: 'LabKey'"></selectbox>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <field-label params="name: 'TestNames', colon: false"></field-label>
+                        </div>
+
+                        <div class="col-sm-9">
+                            <typeahead params="name: 'Test', search: 'TestName', min: 4, field: TestName1,
+                                        fieldMap: { 'TestKey': TestKey1 }, 
+                                        updateCallback: $module.TestUpdateCallback, updateCallbackParams: TestName1,
+                                        error: 'TestKey1'"></typeahead>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <button class="btn btn-default" data-bind="click: ShowAllClick">Show All</button>
+                        </div>
+
+                        <div class="col-sm-9">
+                            <typeahead params="name: 'Test', search: 'TestName', min: 4, field: TestName2,
+                                        fieldMap: { 'TestKey': TestKey2 }, enabled: TestEnabled, 
+                                        updateCallback: $module.TestUpdateCallback, updateCallbackParams: TestName2,
+                                        error: 'TestKey2'"></typeahead>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3"></div>
+
+                        <div class="col-sm-9">
+                            <typeahead params="name: 'Test', search: 'TestName', min: 4, field: TestName3,
+                                        fieldMap: { 'TestKey': TestKey3 }, enabled: TestEnabled,
+                                        updateCallback: $module.TestUpdateCallback, updateCallbackParams: TestName3,
+                                        error: 'TestKey3'"></typeahead>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3"></div>
+
+                        <div class="col-sm-9">
+                            <typeahead params="name: 'Test', search: 'TestName', min: 4, field: TestName4,
+                                        fieldMap: { 'TestKey': TestKey4 }, enabled: TestEnabled,
+                                        updateCallback: $module.TestUpdateCallback, updateCallbackParams: TestName4,
+                                        error: 'TestKey4'"></typeahead>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <field-label params="name: 'OtherTest', colon: false"></field-label>
+                        </div>
+
+                        <div class="col-sm-9">
+                            <textbox params="field: OtherTest, error: 'OtherTest'"></textbox>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <field-label params="name: 'DetailNotes', colon: false"></field-label>
+                        </div>
+
+                        <div class="col-sm-9">
+                            <textbox params="field: Notes, uiFieldName: 'DetailNotes'"></textbox>
+                        </div>
+                    </div>
+                </flyout>
+            </live-grid>
+        </div>
+    </div>
+
+    <div class="row" data-bind="with: Tables.t_EHR_Specimen.Single">
+        <div class="col-sm-1">
+            <field-label params="name: 'SpecimenNotes', colon: false"></field-label>
+        </div>
+
+        <div class="col-sm-11">
+            <textareabox params="field: Notes, uiFieldName: 'SpecimenNotes'"></textareabox>
+        </div>
+    </div>
+</div>

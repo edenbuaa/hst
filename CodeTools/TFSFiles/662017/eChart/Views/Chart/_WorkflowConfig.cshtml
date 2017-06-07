@@ -1,0 +1,27 @@
+﻿@using eChart.ViewModels
+@model WorkflowManagerViewModel
+
+<span class="text-primary"><i class="fa fa-cogs"></i> Current Area & Workflows</span>
+
+<div class="section">
+    <div class="hst-standard-top10"></div>
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#addWorkflowToAreaPage">Add New Workflow</a></li>
+        @if (1 > 0)
+        {
+            <li><a data-toggle="tab" href="#restoreWorkflowPage">Restore Inactive Workflow</a></li>
+        }
+    </ul>
+
+    <div class="tab-content">
+        <div id="addWorkflowToAreaPage" class="tab-pane fade in active">
+            @Html.Partial("_AddWorkflowToArea", Model)
+        </div>
+
+        <div id="restoreWorkflowPage" class="tab-pane fade">
+            @Html.Partial("_ReActiveWorkflow", Model)
+        </div>
+
+    </div>    
+
+</div>

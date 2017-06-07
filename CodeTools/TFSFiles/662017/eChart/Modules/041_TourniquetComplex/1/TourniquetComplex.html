@@ -1,0 +1,223 @@
+﻿<div class="has-module">
+    <div class="row" data-bind="with: Tables.t_EHR_Tourniquet.Single">
+        <div class="col-sm-12">
+            <div class="checkbox">
+                <checkbox params="field: PretestComplete, checkedValue: false, inline: true"></checkbox>
+                <error-ball params="name: 'PretestComplete'"></error-ball>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="checkbox">
+                <checkbox params="field: PaddingUnderCuff, checkedValue: false, inline: true"></checkbox>
+                <error-ball params="name: 'PaddingUnderCuff'"></error-ball>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="checkbox">
+                <checkbox params="field: PressureLimitApproved, checkedValue: false, inline: true"></checkbox>
+                <error-ball params="name: 'PressureLimitApproved'"></error-ball>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <live-grid params="table: 'v_EHR_TourniquetDetail', fieldSet: 'TourniquetDetail', behavior: $module.foodFightBehavior,title:'Tourniquet Detail'">
+                <live-grid-column ui-field-name='EquipmentType' data-field="EquipmentType"></live-grid-column>
+                <live-grid-column ui-field-name='IdentificationNumberForGrid' data-field="IdentificationNumber"></live-grid-column>
+                <live-grid-column ui-field-name='SerialNumber' data-field="SerialNumber"></live-grid-column>
+                <live-grid-column ui-field-name='BodySiteName' data-field="BodySiteName"></live-grid-column>
+                <live-grid-column ui-field-name='BodySide' data-field="BodySideText"></live-grid-column>
+                <live-grid-column ui-field-name='PressureForGrid' data-field="Pressure"></live-grid-column>
+                <live-grid-column ui-field-name='TimeUpText' data-field="FormattedTimeUp"></live-grid-column>
+                <live-grid-column ui-field-name='TimeDownText' data-field="FormattedTimeDown"></live-grid-column>
+                <flyout>
+                    <div class="col-sm-12">
+                        <div class="row form-group">
+                            <div class="col-sm-2">
+                                <field-label params="name: 'EquipmentType', colon: false"></field-label>
+                            </div>
+                            <div class="col-sm-6">
+                                <selectbox params="updateCallback:setIdOption,source:'v_EHR_ItemMasterForTourniquet',
+                                                                               captionText:     'None',
+                                                                               displayField:    'Description',
+                                                                               dataField:        EquipmentType,
+                                                                               sourceField:     'InvGroup-ItemCode-ItemFakeKey-Description',
+                                                                               fieldMap: {
+                                                                                         'ItemFakeKey': EquipmentType
+
+                                                                               },
+                                                                               error:'EquipmentType'">
+
+                                </selectbox>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-2">
+                                <field-label params="name: 'IdentificationNumber', colon: false"></field-label>
+                            </div>
+                            <div class="col-sm-6">
+                                <selectbox params="source:          'v_EHR_ItemEquipmentForTourniquet',
+                                                   captionText:     'None',
+                                                   displayField:    'IdentificationNumber',
+                                                   dataField:        ItemEquipKey,
+                                                   sourceField:     'ItemEquipKey-IdentificationNumber-SerialNumber-EquipmentType',
+                                                   fieldMap: {
+                                                                    'ItemEquipKey':             ItemEquipKey,
+                                                                    'IdentificationNumber':     IdentificationNumber,
+                                                                    'SerialNumber':             SerialNumber
+                                                   },
+                                                   relationMap: {
+                                                                    'EquipmentType': EquipmentType
+                                                   },
+                                                   error:           'IdentificationNumber',
+                                                   enabled:          EnableIdentificationNumber"></selectbox>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <field-label params="name: 'SerialNumber', colon: false"></field-label>
+                            </div>
+                            <div class="col-sm-6">
+                                <textbox params="field: SerialNumber, error: 'SerialNumber', enabled: EnableSerialNumber"></textbox>
+                            </div>
+                        </div>
+                        <!--<div class="row">
+                            <div class="col-sm-2">
+                                <field-label params="name:'BodySiteName', colon: false"></field-label>
+                            </div>
+                            <div class="col-sm-6">
+                                <typeahead params="name:'bodysite',
+                                       field:            BodySiteName,
+                                       search:          'BodySiteDescription',
+                                       normalized:       true,
+                                       fieldMap: {
+                                                        'BodySiteKey':          BodySiteKey,
+                                                        'BodySiteName':         BodySiteName,
+                                                        'BodySide':             BodySide
+                                       },
+                                       min:              3,
+                                       error:           'BodySiteKey'"></typeahead>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <field-label params="name: 'BodySide', colon: false"></field-label>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="m041-intact-acne">
+                                                <error-ball params="name: 'BodySide'"></error-ball>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <div class="radio">
+                                                    <radio-button params="field: BodySide, uiFieldName: 'BodySideLeft', checkedValue: 'L', groupName: 'm041-BodySide', enabled: $module.enableBodySide(BodySide)"></radio-button>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <div class="radio">
+                                                    <radio-button params="field: BodySide, uiFieldName: 'BodySideRight', checkedValue: 'R', groupName: 'm041-BodySide', enabled: $module.enableBodySide(BodySide)"></radio-button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+                        <div class="row">
+                            <div class="col-sm-2">
+
+                                <field-label params="name:'BodySiteName', colon: false"></field-label>
+                                <div style="left: 15px;top:50px;position:absolute;">
+                                    <field-label params="name: 'BodySide', colon: false"></field-label>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <site-side params="                                                  
+                                                    site_field:       BodySiteName,
+
+                                                    site_search: 'BodySiteDescription',
+                                                    site_normalized:  true,
+                                                    site_fieldMap: {
+                                                        'BodySiteKey':  BodySiteKey,
+                                                        'BodySiteName': BodySiteName,
+                                                        'BodySide':     BodySide
+                                                    },
+                                                    side_options:[{ SideCode:'L', UIFieldName:'BodySideLeft' },
+                                                                { SideCode:'R', UIFieldName:'BodySideRight' }],
+                                                    side_field:   BodySide,
+                                                    side_groupName:'g-Side_041',
+                                                    side_error:'BodySide',
+                                                    site_error:      'BodySiteKey'"></site-side>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-2">
+                                <field-label params="name: 'Pressure', colon: false"></field-label>
+                            </div>
+                            <div class="col-sm-4">
+                                <numeric params="field: Pressure, type: 'integer', error: 'Pressure'"></numeric>
+                            </div>
+                            <div class="col-sm-2">
+                                mm Hg
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-2">
+                                <field-label params="name: 'TimeUp', colon: false"></field-label>
+                            </div>
+                            <div class="col-sm-5">
+                                <timepicker params="field:           TimeUp,
+                                                    format:         'HH:mm',
+                                                    tabindex:        1,
+                                                    error:          'TimeUp'"></timepicker>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-2">
+                                <field-label params="name: 'TimeDown', colon: false"></field-label>
+                            </div>
+                            <div class="col-sm-5">
+                                <timepicker params="field:           TimeDown,
+                                                    format:         'HH:mm',
+                                                    tabindex:        1,
+                                                    error:          'TimeDown'"></timepicker>
+                            </div>
+                        </div>
+                    </div>
+                </flyout>
+            </live-grid>
+        </div>
+    </div>
+    <div class="row form-group" data-bind="with: Tables.t_EHR_Tourniquet.Single">
+        <div class="col-sm-3">       
+            <field-label params="name: 'TotalMinutesLeft', colon: true"></field-label>
+        </div>
+        <div class="col-sm-2">
+            <!--<span data-bind="text: TotalMinutesLeft"></span>-->
+            <textbox params="field: TotalMinutesLeft" ></textbox>
+        </div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-3">
+            <field-label params="name: 'TotalMinutesRight', colon: true"></field-label>
+        </div>
+        <div class="col-sm-2">
+            <!--<span data-bind="text: TotalMinutesRight"></span>-->
+            <textbox params="field: TotalMinutesRight"></textbox>
+        </div>
+    </div>
+
+    <div class="row" data-bind="with: Tables.t_EHR_Module.Single">
+        <div class="col-sm-2">
+            <field-label params="name: 'Notes', colon: false"></field-label>
+        </div>
+
+        <div class="col-sm-10">
+            <textbox params="field: Notes"></textbox>
+        </div>
+    </div>
+</div>

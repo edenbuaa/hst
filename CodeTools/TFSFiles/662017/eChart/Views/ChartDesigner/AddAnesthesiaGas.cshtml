@@ -1,0 +1,90 @@
+﻿@using Hst.Core.Entity
+@using Hst.Core.Helpers
+@using eChart.Helper
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div>
+    <div id="AddAnesthesiaGas">
+        <div class="container">
+
+            <div class="row chart-designer-color">
+                <div class="col-sm-12"><span class="chart-designer-header">Add Anesthesia Gas</span></div>
+            </div>
+            <div class="row top-buffer">
+                <div class="col-sm-12">
+                    <div class="col-sm-2">
+                        <span>Gas Name</span>
+                    </div>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  maxlength="50" data-bind="value:GasName" />
+                        <div id="errGas" class="col-sm-10 text-danger" data-bind="visible:showValidationError">
+                            Enter Gas
+                        </div>
+                    </div>
+                  </div>
+            </div>
+         
+
+            <div class="row top-buffer">
+                <div class="col-sm-2"><i class="hst-loading fa fa-spinner fa-spin fa-2x text-primary" style="display: none;"></i></div>
+                <div class="col-sm-8">
+                    <button type="button" class="btn btn-primary" id="save" data-bind="click:saveAnesthesiaGas">Save Gas</button>
+                    <button type="button" class="btn btn-default" data-bind="click:navigateToAnesthesiaGases" data-dismiss=" modal">Cancel</button>
+                </div>
+                <div class="col-sm-1 ">
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="hst-ok-flyout">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content hst-flyout">
+            <div class="row top-buffer-sm">
+                <div id="hst-ok-message" class="col-sm-12">Successfully added the Gas</div>
+            </div>
+            <div class="row top-buffer-lg">
+                <div class="col-sm-12">
+                    <div class="form-inline pull-right">
+                        <button id="hst-ok" class="btn btn-default">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="hst-error-flyout">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content hst-flyout">
+            <div class="row top-buffer-sm">
+                <div id="hst-error-message" class="col-sm-12">Failed to add the Gas</div>
+            </div>
+            <div class="row top-buffer-lg">
+                <div class="col-sm-12">
+                    <div class="form-inline pull-right">
+                        <button id="hst-error-ok" class="btn btn-default">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @BundleHelper.RenderScriptsWithVersion("~/bundles/basicFrameworkScripts")
+
+   
+</div>
+<script>
+    $(document).ready(function () {
+        var addAG = new eChart.ChartDesigner.AddAnesthesiaGas();
+        addAG.init("@Model.ApplicationVirtualPath");
+        ko.applyBindings(addAG, document.getElementById("AddAnesthesiaGas"));
+        le.ajax.init(0, 0, "@Model.ApplicationVirtualPath");
+    });
+
+</script>
+

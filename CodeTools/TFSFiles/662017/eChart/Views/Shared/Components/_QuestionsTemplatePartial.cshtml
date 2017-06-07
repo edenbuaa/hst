@@ -1,0 +1,227 @@
+﻿<script id="questions-template" type="x-knockout-template">
+    <div class="questionnaire" data-bind="template: { nodes: $component.nodes, data: $component }"></div>
+</script>
+    <script id="questions-template-two-radio" type="x-knockout-template">
+        <div class="row question-row" data-bind="visible: questions[{{index}}].visible">
+            <div class="col-sm-8" data-bind="css: { 'child-question': questions[{{index}}].isChild }">
+                <span data-bind="html: questions[{{index}}].text"></span>
+            </div>
+            <div class="col-sm-4">
+                <div class="col-sm-12">
+                    <div class="panel panel-default question-radio-panel">
+                        <div class="panel-body question-radio-body">
+                            <div style="position: absolute; right: 20px; top: 5px;">
+                                <error-ball params="name: questions[{{index}}].errorName"></error-ball>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="radio">
+                                    <radio-button params="uiFieldName: 'CodeResponse', field: questions[{{index}}].response, enabled: questions[{{index}}].enabled, label: '{{labelOne}}', checkedValue: '{{checkedValueOne}}', groupName: questions[{{index}}].groupName, valueNullable: true"></radio-button>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="radio">
+                                    <radio-button params="uiFieldName: 'CodeResponse', field: questions[{{index}}].response, enabled: questions[{{index}}].enabled, label: '{{labelTwo}}', checkedValue: '{{checkedValueTwo}}', groupName: questions[{{index}}].groupName, valueNullable: true"></radio-button>
+                                </div>
+                            </div>
+                            <div class="col-sm-4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </script>
+
+    <script id="questions-template-three-radio" type="x-knockout-template">
+        <div class="row question-row" data-bind="visible: questions[{{index}}].visible">
+            <div class="col-sm-8" data-bind="css: { 'child-question': questions[{{index}}].isChild }">
+                <span data-bind="html: questions[{{index}}].text"></span>
+            </div>
+            <div class="col-sm-4">
+                <div class="col-sm-12">
+                    <div class="panel panel-default question-radio-panel">
+                        <div class="panel-body question-radio-body">
+                            <div style="position: absolute; right: 20px; top: 5px;">
+                                <error-ball params="name: questions[{{index}}].errorName"></error-ball>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="radio">
+                                    <radio-button params="uiFieldName: 'CodeResponse', field: questions[{{index}}].response, enabled: questions[{{index}}].enabled, label: '{{labelOne}}', checkedValue: '{{checkedValueOne}}', groupName: questions[{{index}}].groupName, valueNullable: true"></radio-button>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="radio">
+                                    <radio-button params="uiFieldName: 'CodeResponse', field: questions[{{index}}].response, enabled: questions[{{index}}].enabled, label: '{{labelTwo}}', checkedValue: '{{checkedValueTwo}}', groupName: questions[{{index}}].groupName, valueNullable: true"></radio-button>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="radio">
+                                    <radio-button params="uiFieldName: 'CodeResponse', field: questions[{{index}}].response, enabled: questions[{{index}}].enabled, label: '{{labelThree}}', checkedValue: '{{checkedValueThree}}', groupName: questions[{{index}}].groupName, valueNullable: true"></radio-button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="questions-template-checkbox" type="x-knockout-template">
+        <div class="row question-row" data-bind="visible: questions[{{index}}].visible">
+            <div class="col-sm-12" data-bind="css: { 'child-question': questions[{{index}}].isChild }">
+                <div class="col-sm-12">
+                    <div >
+                        <div >
+                            <checkbox params="uiFieldName: 'CodeResponse', field: questions[{{index}}].response, enabled: questions[{{index}}].enabled,customCheckedValue:'{{checkedValue}}',customUncheckedValue:'{{uncheckedValue}}' "></checkbox>
+                        </div>
+                        <div>
+                            <span data-bind="html: questions[{{index}}].text"></span>
+                            <error-ball params="name: questions[{{index}}].errorName"></error-ball>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+        </div>
+    </script>
+
+    <script id="questions-template-text" type="x-knockout-template">
+        <div class="row question-row" data-bind="visible: questions[{{index}}].visible">
+            <div class="col-sm-8" data-bind="css: { 'child-question': questions[{{index}}].isChild }">
+                <span data-bind="html: questions[{{index}}].text"></span>
+            </div>
+            <div class="col-sm-4">
+                <div class="col-sm-12">
+                    <div class="radio">
+                        <textbox params="uiFieldName: 'TextResponse', field: questions[{{index}}].response, enabled: questions[{{index}}].enabled, error: questions[{{index}}].errorName"></textbox>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="questions-template-date" type="x-knockout-template">
+        <div class="row question-row" data-bind="visible: questions[{{index}}].visible">
+            <div class="col-sm-8" data-bind="css: { 'child-question': questions[{{index}}].isChild }">
+                <span data-bind="html: questions[{{index}}].text"></span>
+            </div>
+            <div class="col-sm-4">
+                <div class="col-sm-12">
+                    <div class="radio">
+                        <datepicker params="uiFieldName: 'DateTimeResponse', field: questions[{{index}}].response, enabled: questions[{{index}}].enabled, questions[{{index}}].errorName"></datepicker>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="questions-template-time" type="x-knockout-template">
+        <div class="row question-row" data-bind="visible: questions[{{index}}].visible">
+            <div class="col-sm-8" data-bind="css: { 'child-question': questions[{{index}}].isChild }">
+                <span data-bind="html: questions[{{index}}].text"></span>
+            </div>
+            <div class="col-sm-4">
+                <div class="col-sm-12">
+                    <div class="radio">
+                        <timepicker params="field:          questions[{{index}}].response,
+                                        uiFieldName:    'DateTimeResponse',
+                                        format:         'HH:mm',
+                                        error:          questions[{{index}}].errorName,
+                                        enable:         questions[{{index}}].enabled">
+                        </timepicker>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="questions-template-masked" type="x-knockout-template">
+        <div class="row question-row" data-bind="visible: questions[{{index}}].visible">
+            <div class="col-sm-8" data-bind="css: { 'child-question': questions[{{index}}].isChild }">
+                <span data-bind="html: questions[{{index}}].text"></span>
+            </div>
+            <div class="col-sm-4">
+                <div class="col-sm-12">
+                    <div class="radio">
+                        <masked-text params="uiFieldName: 'DateTimeResponse', field: questions[{{index}}].response, mask: questions[{{index}}].mask, error: questions[{{index}}].errorName"></masked-text>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="questions-template-integer" type="x-knockout-template">
+        <div class="row question-row" data-bind="visible: questions[{{index}}].visible">
+            <div class="col-sm-8" data-bind="css: { 'child-question': questions[{{index}}].isChild }">
+                <span data-bind="html: questions[{{index}}].text"></span>
+            </div>
+            <div class="col-sm-4">
+                <div class="col-sm-12">
+                    <div class="radio">
+                        <numeric params="uiFieldName: 'IntegerResponse', field: questions[{{index}}].response, error: questions[{{index}}].errorName,enabled: questions[{{index}}].enabled"></numeric>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="questions-template-decimal" type="x-knockout-template">
+        <div class="row question-row" data-bind="visible: questions[{{index}}].visible">
+            <div class="col-sm-8" data-bind="css: { 'child-question': questions[{{index}}].isChild }">
+                <span data-bind="html: questions[{{index}}].text"></span>
+            </div>
+            <div class="col-sm-4">
+                <div class="col-sm-12">
+                    <div class="radio">
+                        <numeric params="uiFieldName: 'DecimalResponse', field: questions[{{index}}].response, error: questions[{{index}}].errorName,enabled: questions[{{index}}].enabled"></numeric>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="questions-template-placeholder" type="x-knockout-template">
+        <div class="row question-row" data-bind="visible: questions[{{index}}].visible">
+            <div class="col-sm-12" data-bind="css: { 'child-question': questions[{{index}}].isChild }">
+                <span data-bind="html: questions[{{index}}].text"></span>
+            </div>
+        </div>
+    </script>
+
+    <script id="questions-template-rhetorical" type="x-knockout-template">
+        <div class="row question-row" data-bind="visible: questions[{{index}}].visible">
+            <div class="col-sm-12" data-bind="css: { 'child-question': questions[{{index}}].isChild }">
+                <span data-bind="html: questions[{{index}}].text"></span>
+            </div>
+        </div>
+    </script>
+
+    <script id="questions-template-rhetorical-4column" type="x-knockout-template">
+        <div class="row question-row">
+            <div class="col-sm-3">
+                <span data-bind="html: questions[{{index}}].text"></span>
+            </div>
+            <div class="col-sm-3">
+                <span data-bind="html: questions[{{index}}+1].text"></span>
+            </div>
+            <div class="col-sm-3">
+                <span data-bind="html: questions[{{index}}+2].text"></span>
+            </div>
+            <div class="col-sm-3">
+                <span data-bind="html: questions[{{index}}+3].text"></span>
+            </div>
+        </div>
+    </script>
+
+    <script id="questions-template-rhetorical-2column" type="x-knockout-template">
+        <div class="row question-row">
+            <div class="col-sm-3">
+                <span data-bind="html: questions[{{index}}].text"></span>
+            </div>
+            <div class="col-sm-3">
+                <span data-bind="html: questions[{{index}}+1].text"></span>
+            </div>
+            <div class="col-sm-6">
+
+            </div>
+        </div>
+    </script>

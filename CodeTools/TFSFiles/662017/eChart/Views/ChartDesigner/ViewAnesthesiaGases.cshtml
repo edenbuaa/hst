@@ -1,0 +1,81 @@
+﻿@using Hst.Core.Entity
+
+@{
+    ViewBag.Title = "ViewAnesthesiaGases";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+
+    bool allowDeleteAnesthesiaGas = eChartHelper.UserHasPermission(FunctionKeys.ChartDesigner, AccessKeys.Delete);
+    bool allowAddAnesthesiaGas = eChartHelper.UserHasPermission(FunctionKeys.ChartDesigner, AccessKeys.Create);
+}
+
+<div id="divAnesthesiaGases">
+    <div class="container">
+        <div class="row  chart-designer-color col-sm-12">
+            <span class="chart-designer-header">Anesthesia Gases</span>
+        </div>
+
+        @if (allowAddAnesthesiaGas)
+        {
+            <div class="row col-sm-11">
+                <a class="active pull-right chart-designer-clickable" data-bind="click:addAnesthesiaGasClicked">
+                    Add New Anesthesia Gas
+                    <i class="fa fa-plus-circle"></i>
+                </a>
+            </div>
+        }
+
+        <div class="col-sm-12 row top-buffer">
+            <simple-grid params="showPager:true,dataSource:'gases',noDataMessage:'No Anesthesia Gases present',removeEvent:removeAnesthesiaGas">
+
+                <simple-grid-column name="GasName" type="text" sortable="true" sorttype="Alpha" header="Gas Name"></simple-grid-column>
+
+                @if (allowDeleteAnesthesiaGas)
+                {
+                    <simple-grid-column name="remove" type="remove" sortable="false" sorttype="" header=""></simple-grid-column>
+                }
+            </simple-grid>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="anesthesiagas-delete-alias-flyout" data-bind="modal: confirmDeleteFlyoutVisible">
+        <div class="modal-dialog modal-lg ui-draggable">
+            <div class="modal-content hst-flyout">
+
+                <div id="anesthesiagas-delete-flyout-container">
+
+                    <div class="row top-buffer-sm">
+                        <div class="col-sm-12"><span data-bind="text: 'Are you sure, you want to delete this Anesthesia Gas?'"></span></div>
+                    </div>
+
+
+                    <div class="row top-buffer-lg">
+                        <div class="col-sm-12">
+                            <div class="form-inline pull-right">
+                                <button id="hst-anesthesiagas-delete-ok" class="btn btn-default">Delete</button>
+                                <button id="hst-anesthesiagas-delete-cancel" class="btn btn-default" data-bind="click: cancelDeleteGasClicked">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @Html.Partial("Components/_SimpleGridTemplatePartial")
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        var gases=new eChart.ChartDesigner.AnesthesiaGases();
+        gases.init("@Model.ApplicationVirtualPath", @Html.Raw(@Model.AnesthesiaGasesJSON));
+        ko.applyBindings(gases, document.getElementById("divAnesthesiaGases"));
+
+    });
+</script>
+

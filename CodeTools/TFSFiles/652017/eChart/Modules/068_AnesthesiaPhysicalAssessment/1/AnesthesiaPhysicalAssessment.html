@@ -1,0 +1,583 @@
+﻿<div class="has-module">
+    <div class="row" data-bind="with: Tables.t_EHR_AnesthesiaPhysicalAssessment.Single">
+        <div class="col-sm-12">
+            <div class="row">   
+                <div class="col-sm-1">
+                   
+                </div>      
+                <div class="col-sm-10">
+                   <div class="col-sm-5">
+                       <div class="checkbox m068-checkbox-acne">
+                           <checkbox params="field: HistoryAndPhysicalReviewed, checkedValue: false, inline: true"></checkbox>
+                       </div>
+                   </div>
+                    <div class="col-sm-5">
+                        <div class="checkbox m068-checkbox-acne">
+                            <checkbox params="field: HomeMedicationsReviewed, checkedValue: false, inline: true"></checkbox>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <error-ball params="name: 'Reviewed'"></error-ball>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-1 m068-spantop">
+                    <span>
+                        Heart&nbsp;&nbsp;&nbsp;
+                    </span>
+                    
+                </div>
+                <div class="col-sm-10">
+                    <div class="panel panel-default">
+                        <div class="panel-body m068-panel">
+                            <div class="row">                               
+                                <div class="col-sm-4">
+                                    <div class="radio">
+                                        <radio-button params="field: Heart, checkedValue: 1, groupName: 'm068-Heart', uiFieldName: 'HeartRegular',inline:true"></radio-button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="radio">
+                                        <radio-button params="field: Heart, checkedValue: 2, groupName: 'm068-Heart', uiFieldName: 'HeartOtherItem', inline: true"></radio-button>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-sm-6">
+
+                                    <textbox params="placeholder: '', field: HeartOther, error: 'HeartOther' "></textbox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <error-ball params="name: 'Heart'"></error-ball>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-1 m068-spantop">
+                    <span>
+                        Lungs&nbsp;&nbsp;&nbsp;
+                    </span>
+                    
+                </div>
+                <div class="col-sm-10">
+                    <div class="panel panel-default">
+                        <div class="panel-body m068-panel">
+                            <div class="row">
+                                
+                                <div class="col-sm-3">
+                                    <div class="radio">
+                                        <radio-button params="field: Lungs, checkedValue: 1, groupName: 'm068-Lungs', uiFieldName: 'LungsClear',  inline:true"></radio-button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="radio">
+                                        <radio-button params="field: Lungs, checkedValue: 3, groupName: 'm068-Lungs', uiFieldName: 'LungsWheezing',  inline:true"></radio-button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="radio">
+                                        <radio-button params="field: Lungs, checkedValue: 4, groupName: 'm068-Lungs', uiFieldName: 'LungsRhonchi',  inline:true"></radio-button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="radio">
+                                        <radio-button params="field: Lungs, checkedValue: 5, groupName: 'm068-Lungs', uiFieldName: 'LungsRales',  inline:true"></radio-button>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <div class="radio">
+                                        <radio-button params="field: Lungs, checkedValue: 2, groupName: 'm068-Lungs', uiFieldName: 'LungsOtherItem',  inline: true"></radio-button>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-10 m021-dentition-textbox">
+
+                                    <textbox params="placeholder: '', field: LungsOther, error: 'LungsOther' "></textbox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <error-ball params="name: 'Lungs'"></error-ball>
+                </div>
+            </div>
+            
+
+
+            <div class="row">
+                <div class="col-sm-3 m068-spantop">
+                    <span>
+                        <field-label params="name: 'RespiratoryEffort', colon: false"></field-label>&nbsp;&nbsp;&nbsp;
+                    </span>
+                </div>
+                <div class="col-sm-8">
+                    <div class="panel panel-default">
+                        <div class="panel-body m068-panel">
+                            <div class="row">
+                                <div class="m068-dentition-acne">
+                                    <error-ball params="name: 'RespiratoryEffort'"></error-ball>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="radio">
+                                        <radio-button params="field: RespiratoryEffort, checkedValue: 1, groupName: 'm068-RespiratoryEffort', uiFieldName: 'RespiratoryUnlabored',  inline:true"></radio-button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="radio">
+                                        <radio-button params="field: RespiratoryEffort, checkedValue: 2, groupName: 'm068-RespiratoryEffort', uiFieldName: 'RespiratoryLabored',  inline:true"></radio-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <span>
+                        Level of Consciousness&nbsp;&nbsp;&nbsp;
+                    </span>                   
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+                    <div class="panel panel-default">
+                        <div class="panel-body  m068-panel">
+                            <div class="row">
+                               
+                                <div class="col-sm-3">
+                                    <div class="radio">
+                                        <radio-button params="field: Consciousness, checkedValue: 1, groupName: 'm068-Consciousness', uiFieldName: 'ConsciousnessAlert',  inline:true"></radio-button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="radio">
+                                        <radio-button params="field: Consciousness, checkedValue: 2, groupName: 'm068-Consciousness', uiFieldName: 'ConsciousnessOtherItem',  inline: true"></radio-button>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-sm-7">
+
+                                    <textbox params="placeholder: '', field: ConsciousnessOther, error: 'ConsciousnessOther' "></textbox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <error-ball params="name: 'Consciousness'"></error-ball>
+                </div>
+            </div>
+
+
+            <!-- remove the skin section-->
+            <!--<div class="row">
+                <div class="col-sm-12">
+                    <span>
+                        Skin Temp/Color&nbsp;&nbsp;&nbsp;
+                    </span>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+                    <div class="panel panel-default">
+                        <div class="panel-body m068-panel">
+                            <div class="row">
+                                <div class="m068-dentition-acne">
+                                    <error-ball params="name: 'Skin'"></error-ball>
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="radio">
+                                        <radio-button params="field: Skin, checkedValue: 1, groupName: 'm068-Skin', uiFieldName: 'SkinWHL',  inline:true"></radio-button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="radio">
+                                        <radio-button params="field: Skin, checkedValue: 2, groupName: 'm068-Skin', uiFieldName: 'SkinOtherItem',  inline: true"></radio-button>
+                                    </div>
+
+                                </div>
+                           
+                                <div class="col-sm-4">
+
+                                    <textbox params="placeholder: '', field: SkinOther, error: 'SkinOther' "></textbox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>-->
+
+            <!-- remove the sounds section-->
+            <!--<div class="row">
+                <div class="col-sm-12">
+                    <span>
+                        Abdomen/Bowel Sounds&nbsp;&nbsp;&nbsp;
+                    </span>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+                    <div class="panel panel-default">
+                        <div class="panel-body  m068-panel">
+                            <div class="row">
+                                <div class="m068-dentition-acne">
+                                    <error-ball params="name: 'Abdomen'"></error-ball>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="radio">
+                                        <radio-button params="field: Abdomen, checkedValue: 1, groupName: 'm068-Abdomen', uiFieldName: 'AbdomenNA',  inline:true"></radio-button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="radio">
+                                        <radio-button params="field: Abdomen, checkedValue: 2, groupName: 'm068-Abdomen', uiFieldName: 'AbdomenWHL',  inline:true"></radio-button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="radio">
+                                        <radio-button params="field: Abdomen, checkedValue: 3, groupName: 'm068-Abdomen', uiFieldName: 'AbdomenOtherItem',  inline: true"></radio-button>
+                                    </div>
+
+                                </div>
+                            
+                                <div class="col-sm-4">
+                                    <textbox params="placeholder: '', field: AbdomenOther, error: 'AbdomenOther' "></textbox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>-->
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4>Airway Assessment</h4>
+                </div>
+            </div>
+                <!--move the dention and cavity here-->
+            <div class="row">             
+              <div class="col-sm-3 m068-spantop">
+                        <span>
+                            <field-label params="name: 'OralCavity', colon: false"></field-label>&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </div>
+              <div class="col-sm-8">
+                        <div class="panel panel-default">
+                            <div class="panel-body m068-panel">
+                                <div class="row">
+                                    <div class="m068-dentition-acne">
+                                        <error-ball params="name: 'OralCavity'"></error-ball>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="radio">
+                                            <radio-button params="field: OralCavity, checkedValue: 1, groupName: 'm068-OralCavity', uiFieldName: 'OralCavityNormal',  inline:true"></radio-button>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="radio">
+                                            <radio-button params="field: OralCavity, checkedValue: 2, groupName: 'm068-OralCavity', uiFieldName: 'OralCavityRestricted',  inline:true"></radio-button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="col-sm-1 m068-spantop">
+                        <span>
+                            <field-label params="name: 'Dentition', colon: false"></field-label>&nbsp;&nbsp;&nbsp;
+                        </span>
+
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="panel panel-default">
+                            <div class="panel-body m068-panel">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="radio">
+                                            <radio-button params="field: Dentition, checkedValue: 1, groupName: 'm068-Dentition', uiFieldName: 'DentitionNormal',  inline:true"></radio-button>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="radio">
+                                            <radio-button params="field: Dentition, checkedValue: 2, groupName: 'm068-Dentition', uiFieldName: 'DentitionOtherItem',  inline:true"></radio-button>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-7">
+
+                                        <textbox params="placeholder: '', field: DentitionOther, error: 'DentitionOther' "></textbox>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-1">
+                        <error-ball params="name: 'Dentition'"></error-ball>
+                    </div>                
+                </div>
+             <!--end-->
+             <div class="row">
+             <div class="col-sm-11">
+                    <div class="panel panel-default">
+                        <div class="panel-body m068-panel">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <span>
+                                        Mallampati classification&nbsp;&nbsp;&nbsp;
+                                    </span>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="panel panel-default">
+                                        <div class="panel-body m068-panel">
+                                            <div class="row">
+                                                <div class="m068-dentition-acne">
+                                                    <error-ball params="name: 'Mallampati'"></error-ball>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="radio">
+                                                        <radio-button params="field: MallampatiCategory, checkedValue: 1, groupName: 'm068-Mallampati', uiFieldName: 'MallampatiCategoryOne',  inline:true"></radio-button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="radio">
+                                                        <radio-button params="field: MallampatiCategory, checkedValue: 2, groupName: 'm068-Mallampati', uiFieldName: 'MallampatiCategoryTwo',  inline: true"></radio-button>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="radio">
+                                                        <radio-button params="field: MallampatiCategory, checkedValue: 3, groupName: 'm068-Mallampati', uiFieldName: 'MallampatiCategoryThree',  inline: true"></radio-button>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="radio">
+                                                        <radio-button params="field: MallampatiCategory, checkedValue: 4, groupName: 'm068-Mallampati', uiFieldName: 'MallampatiCategoryFour',  inline: true"></radio-button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <span>
+                                        Neck mobility&nbsp;&nbsp;&nbsp;
+                                    </span>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-body m068-panel">
+                                            <div class="m068-dentition-acne">
+                                                <error-ball params="name: 'Neck'"></error-ball>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="radio">
+                                                    <radio-button params="field: NeckMobility, checkedValue: 1, groupName: 'm068-Neck', uiFieldName: 'NeckUnrestricted',  inline:true"></radio-button>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="radio">
+                                                    <radio-button params="field: NeckMobility, checkedValue: 2, groupName: 'm068-Neck', uiFieldName: 'NeckMild',  inline: true"></radio-button>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="radio">
+                                                    <radio-button params="field: NeckMobility, checkedValue: 3, groupName: 'm068-Neck', uiFieldName: 'NeckServere',  inline: true"></radio-button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--asa -->
+            </div>
+        </div>
+</div>
+
+
+<div class="row" data-bind="with: Tables.t_EHR_ASAClassification.Single">
+    <div class="col-sm-1 m068-spantop">
+        <span>
+            ASA&nbsp;&nbsp;&nbsp;
+        </span>
+    </div>
+    <div class="col-sm-10">
+        <div class="panel panel-default">
+            <div class="panel-body m068-panel">
+                <div class="row">
+                    <div class="m068-dentition-acne">
+                        <error-ball params="name: 'ASA'"></error-ball>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="radio">
+                            <radio-button params="field: ASACategory, checkedValue: 1, groupName: 'm068-ASACategory', uiFieldName: 'ASA1',  inline:true"></radio-button>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="radio">
+                            <radio-button params="field: ASACategory, checkedValue: 2, groupName: 'm068-ASACategory', uiFieldName: 'ASA2',  inline:true"></radio-button>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="radio">
+                            <radio-button params="field: ASACategory, checkedValue: 3, groupName: 'm068-ASACategory', uiFieldName: 'ASA3',  inline: true"></radio-button>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="radio">
+                            <radio-button params="field: ASACategory, checkedValue: 4, groupName: 'm068-ASACategory', uiFieldName: 'ASA4',  inline: true"></radio-button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row" data-bind="with: Tables.t_EHR_AnesthesiaPhysicalAssessment.Single">
+    <div class="col-sm-11">
+        <!--Notes-->
+        <div class="row">
+
+            <div class="col-sm-2">
+                <field-label params="name: 'LabeledComments', colon: false"></field-label>
+            </div>
+            <div class="col-sm-10">
+                <textbox params="placeholder: '', field: LabeledComments"></textbox>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+  <div class="row" data-bind="with: Tables.t_EHR_AnesthesiaPhysicalAssessment.Single">
+      <!--<div class="col-sm-12"> </div>-->
+
+         <div class="col-sm-2">
+             <span>
+                 Planned Anesthesia&nbsp;&nbsp;&nbsp;
+             </span>
+         </div>
+        
+        <div class="col-sm-9">
+            <div class="panel panel-default">
+                <div class="panel-body m068-panel">
+                    <div class="row">
+                        <div class="col-sm-2 m068-dentition-chkbox">
+                            <field-label params="name: 'PlannedAnesthesiaType', colon: false"></field-label>
+                        </div>
+                        <div class="col-sm-4 m068-dentition-chkbox">
+                            <div class="m068-dentition-acne">
+                                <error-ball params="name: 'Anesthesia'"></error-ball>
+                            </div>
+                            <selectbox params="source:  'v_EHR_AnesthesiaType',
+                                           captionText:     'None',
+                                           displayField:    'Description',
+                                            dataField:     PlannedAnesthesiaType,
+                                           sourceField:     'AnesthesiaType-Description',
+                                            uiFieldName: 'PlannedAnesthesiaType',
+                                           fieldMap: {
+                                                            'AnesthesiaType': PlannedAnesthesiaType
+                                           },
+                                       updateCallback:$module.PannedAnesthesiaDirty,
+                                         error:'Anesthesia'
+                                         "></selectbox>
+                        </div>
+                        <div class="col-sm-2 m068-dentition-chkbox">
+                            <field-label params="name: 'PlannedAnesthesiaTypeSecondary', colon: false"></field-label>
+                        </div>
+                        <div class="col-sm-4 m068-dentition-chkbox">
+                            <div class="m068-dentition-acne">
+                                <error-ball params="name: 'AnesthesiaSecondary'"></error-ball>
+                            </div>
+                            <selectbox params="source:  'v_EHR_AnesthesiaType',
+                                           captionText:     'None',
+                                           displayField:    'Description',
+                                            dataField:     PlannedAnesthesiaTypeSecondary,
+                                           sourceField:     'AnesthesiaType-Description',
+                                            uiFieldName: 'PlannedAnesthesiaTypeSecondary',
+                                           fieldMap: {
+                                                            'AnesthesiaType': PlannedAnesthesiaTypeSecondary
+                                           },
+                                       updateCallback:$module.PannedAnesthesiaDirty,
+                                         error:'AnesthesiaSecondary'
+                                         "></selectbox>
+                        </div>
+                    </div>
+                </div>
+               </div>
+          </div>
+     
+   </div>    
+<div class="row" data-bind="with: Tables.t_EHR_AnesthesiaPhysicalAssessment.Single">
+    <div class="col-sm-2">
+        <span>
+            Performed By
+        </span>
+
+    </div>
+    <div class="col-sm-4">
+        <!--<signature params="signature:   $module.Tables.t_EHR_Signature,
+                            row:         $module.Tables.t_EHR_AnesthesiaPhysicalAssessment.Single,
+                            keyField:    SignatureKey,
+                            uiFieldName: 'PhysicianSignature',
+                            behavior:    $module.PhysicianSign,
+                            enabled:     $module.canSign"></signature>-->
+        <typeahead params="name: 'Staff', display: PerformedByName, min: 2, search: 'StaffName', field: PerformedByName,
+                                                        fieldMap: {'StaffID': PerformedByID, 'StaffIDType': PerformedByIDType},
+                                                        setButton: le.ta.StaffMe,
+                                                        error: 'PerformedByName'"></typeahead>
+    </div>
+</div>
+   <div class="row">
+       &nbsp;
+</div>
+    <div class="row" data-bind="with: Tables.t_EHR_AnesthesiaPhysicalAssessment.Single">
+        <div class="col-sm-11">
+            <!--Notes-->
+            <div class="row">
+
+                <div class="col-sm-1">
+                    <field-label params="name: 'Notes', colon: false"></field-label>
+                </div>
+                <div class="col-sm-11">
+                    <textbox params="placeholder: '', field: Notes"></textbox>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+

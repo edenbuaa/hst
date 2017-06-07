@@ -1,0 +1,946 @@
+﻿<div class="row" data-bind="with: Tables.t_EHR_HistoryAndPhysical.Single">
+    <div class="col-sm-12">
+        <h4>Plan</h4>
+        <!--pre-op diagnosis-->
+        <div class="row">
+            <div class="col-sm-4">
+                <field-label params="name: 'PreOpDiagnosisText', colon: false"></field-label>
+            </div>
+            <div class="col-sm-6 ">
+                <textareabox params="field: PreOpDiagnosisText, rows: 4, uiFieldName: 'PreOpDiagnosisText', error: 'PreOpDiagnosisText'"></textareabox>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <field-label params="name: 'PreOpDiagnosis', colon: false"></field-label>
+            </div>
+            <div class="col-sm-6 m070-dentition-plantext">
+                <span data-bind="text: PreOpDiagnosis"></span>
+            </div>
+        </div>
+        <!--scheduled procedures-->
+        <div class="row">
+            <div class="col-sm-4">
+                <field-label params="name: 'ScheduledProcedures', colon: false"></field-label>
+            </div>
+            <div class="col-sm-6 m070-dentition-plantext">
+                <span data-bind="text: ScheduledProcedures"></span>
+            </div>
+        </div>
+        <!--anesthesia-->
+        <div class="row">
+            <div class="col-sm-4">
+                <field-label params="name: 'PlannedAnesthesia', colon: false"></field-label>
+            </div>
+            <div class="col-sm-6 m070-dentition-plantext">
+                <span data-bind="text: PlannedAnesthesia"></span>
+            </div>
+        </div>
+
+        <!--IndicationForSurgery-->
+        <div class="row">
+            <div class="col-sm-4">
+                <field-label params="name: 'IndicationForSurgery', colon: false"></field-label>
+            </div>
+            <div class="col-sm-6">
+                <textbox params="field: IndicationForSurgery, uiFieldName: 'IndicationForSurgery', error: 'IndicationForSurgery'"></textbox>
+
+            </div>
+        </div>
+
+        <h4>History</h4>
+        <div class="row">
+            <div class="col-sm-4 ">
+                <field-label params="name: 'SignificantMedicalHistory', colon: false"></field-label>
+
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="m070-dentition-acne">
+                        <error-ball params="name: 'SignificantMedicalHistory'"></error-ball>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="radio">
+                            <radio-button params="field: SignificantMedicalHistory, groupName: 'm070-SignificantMedicalHistory', uiFieldName: 'SignificantMedicalHistoryNo', checkedValue: 0, inline: true"></radio-button>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="radio">
+                            <radio-button params="field: SignificantMedicalHistory, groupName: 'm070-SignificantMedicalHistory', uiFieldName: 'SignificantMedicalHistoryYes', checkedValue: 1,inline: true"></radio-button>&nbsp;&nbsp;&nbsp;
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-sm-10">
+                <textbox params="field: SignificantMedicalHistoryText, uiFieldName: 'SignificantMedicalHistoryText', error: 'SignificantMedicalHistoryText'"></textbox>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 ">
+                <field-label params="name: 'SignificantSurgicalHistory', colon: false"></field-label>
+
+            </div>
+            <div class="col-sm-6">
+
+                <div class="row">
+                    <div class="m070-dentition-acne">
+                        <error-ball params="name: 'SignificantSurgicalHistory'"></error-ball>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="radio">
+                            <radio-button params="field: SignificantSurgicalHistory, groupName: 'm070-SignificantSurgicalHistory', uiFieldName: 'SignificantSurgicalHistoryNo', checkedValue: 0, inline: true"></radio-button>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="radio">
+                            <radio-button params="field: SignificantSurgicalHistory, groupName: 'm070-SignificantSurgicalHistory', uiFieldName: 'SignificantSurgicalHistoryYes', checkedValue: 1,inline: true"></radio-button>&nbsp;&nbsp;&nbsp;
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-sm-10">
+                <textbox params="field: SignificantSurgicalHistoryText, uiFieldName: 'SignificantSurgicalHistoryText', error: 'SignificantSurgicalHistoryText'"></textbox>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 ">
+                <field-label params="name: 'CurrentMedication', colon: false"></field-label>
+
+            </div>
+            <div class="col-sm-7">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="m070-dentition-acne">
+                                <error-ball params="name: 'CurrentMedication'"></error-ball>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="radio">
+                                    <radio-button params="field: CurrentMedication, groupName: 'm070-CurrentMedication', uiFieldName: 'CurrentMedicationNone', checkedValue: 0, inline: true"></radio-button>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="radio">
+                                    <radio-button params="field: CurrentMedication, groupName: 'm070-CurrentMedication', uiFieldName: 'CurrentMedicationReviewd', checkedValue: 1,inline: true"></radio-button>&nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="radio">
+                                    <a data-bind="attr:{ href:$module.homeMedicationLink },visible:$module.enablelink" style="text-decoration:underline" target="_blank">Link to Home Medication Bloc</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <field-label params="name: 'UnverifiedAllergies', colon: false"></field-label>
+            </div>
+            <div class="col-sm-8">
+                <textareabox params="field: UnverifiedAllergies, rows: 4, uiFieldName: 'UnverifiedAllergies', error: 'UnverifiedAllergies'"></textareabox>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <span>Social History</span>
+            </div>
+            <!--</div>
+            <div class="row">-->
+            <div class="col-sm-2">
+                <div class="row">
+                    <div class="col-sm-3 m070-dentition-textbox">
+                        <checkbox params="field: Tobacco, checkedValue: 1, inline: true,updateCallback:$module.textToco"></checkbox>
+                    </div>
+                    <!--<div class="col-sm-4">
+                        <textbox params="field: TobaccoPerDay, uiFieldName: 'TobaccoPerDay', error: 'TobaccoPerDay',enabled:$module.NAToco"></textbox>
+                    </div>
+                    <div class="col-sm-3 m070-dentition-textbox"><span>per day</span></div>-->
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="row">
+                    <div class="col-sm-3 m070-dentition-textbox">
+                        <checkbox params="field: Marijuana, checkedValue: 2, inline: true,updateCallback:$module.textMarijuana"></checkbox>
+                    </div>
+                    <!--<div class="col-sm-4">
+                            <textbox params="field: MarijuanaPerDay, uiFieldName: 'MarijuanaPerDay', error: 'MarijuanaPerDay',enabled:$module.NAMarijuana"></textbox>
+                        </div>
+                    <div class="col-sm-3 m070-dentition-textbox"><span>per day</span></div>-->
+                </div>
+            </div>
+            <!--</div>
+            <div class="row">-->
+            <div class="col-sm-2">
+                <div class="row">
+                    <div class="col-sm-3 m070-dentition-textbox">
+                        <checkbox params="field: Alcohol, checkedValue: 3, inline: true,updateCallback:$module.textAlcohol"></checkbox>
+                    </div>
+                    <!--<div class="col-sm-4">
+                        <textbox params="field: AlcoholPerWeek, uiFieldName: 'AlcoholPerWeek', error: 'AlcoholPerWeek',enabled:$module.NAAlcohol"></textbox>
+                    </div>
+                    <div class="col-sm-3 m070-dentition-textbox"><span>per week</span></div>-->
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-7 m070-dentition-textbox">
+                        <checkbox params="field: IllegalDrugs, checkedValue: 4, inline: true,updateCallback:$module.textIllegalDrugs"></checkbox>
+                    </div>
+                    <!--<div class="col-sm-4">
+                        <textbox params="field: IllegalDrugsPerDay, uiFieldName: 'IllegalDrugsPerDay', error: 'IllegalDrugsPerDay',enabled:$module.NAIllegalDrugs"></textbox>
+                    </div>
+                    <div class="col-sm-3 m070-dentition-textbox"><span>per day</span></div>-->
+                </div>
+            </div>
+        </div>
+
+        <h4>Review of Systems</h4>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="m070-dentition-acne">
+                    <error-ball params="name: 'Cardiovascular'"></error-ball>
+                </div>
+
+
+
+                <div class="m070-dentition-ccc">
+                    <div class="col-sm-3">
+                        <b>Cardiovascular</b>
+                    </div>
+                    <!-- -->
+                    <div class="col-sm-3 ">
+                        <checkbox params="field: CardiovascularNoKnown, checkedValue: 1, inline: true,updateCallback:$module.selectCNO"></checkbox>
+                    </div>
+                    <div class="col-sm-2">
+                        <checkbox params="field: CardiovascularCHF, checkedValue: 1, inline: true,updateCallback:$module.selectC"></checkbox>
+                    </div>
+                    <div class="col-sm-2">
+                        <checkbox params="field: CardiovascularCABG, checkedValue: 1, inline: true,updateCallback:$module.selectC"></checkbox>
+                    </div>
+                    <div class="col-sm-2">
+                        <checkbox params="field: CardiovascularStent, checkedValue: 1, inline: true,updateCallback:$module.selectC"></checkbox>
+                    </div>
+
+                </div>
+
+                <div class="m070-dentition-ccc">
+                    <div class="col-sm-3">
+                        <checkbox params="field: CardiovascularPacemaker, checkedValue: 1, inline: true,updateCallback:$module.selectC"></checkbox>
+                    </div>
+                    <div class="col-sm-3">
+                        <checkbox params="field: CardiovascularArythmia, checkedValue: 1, inline: true,updateCallback:$module.selectC"></checkbox>
+                    </div>
+                    <div class="col-sm-6">
+                        <checkbox params="field: CardiovascularValve, checkedValue: 1, inline: true,updateCallback:$module.selectC"></checkbox>
+                    </div>
+                </div>
+                <div class="m070-dentition-ccc">
+                    <div class="col-sm-3">
+                        <checkbox params="field: CardiovascularArteriosclerosis, checkedValue: 1, inline: true,updateCallback:$module.selectC"></checkbox>
+                    </div>
+
+                    <div class="col-sm-7">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <checkbox params="field: CardiovascularOther, checkedValue: 1, inline: true,updateCallback:$module.selectC"></checkbox>
+                            </div>
+                            <div class="col-sm-10">
+                                <textbox params="field: CardiovascularOtherText, uiFieldName: 'CardiovascularOtherText', error: 'CardiovascularText'"></textbox>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="m070-dentition-acne">
+                    <error-ball params="name: 'Hematologic'"></error-ball>
+                </div>
+                <div class="m070-dentition-ccc">
+                    <div class="col-sm-2">
+                        <b>Hematologic</b>
+                    </div>
+                    <!-- -->
+                    <div class="col-sm-4 ">
+                        <checkbox params="field: HematologicNoKnown, checkedValue: 1, inline: true,updateCallback:$module.selectHNO"></checkbox>
+                    </div>
+                    <div class="col-sm-3">
+                        <checkbox params="field: HematologicAnemia, checkedValue: 1, inline: true,updateCallback:$module.selectH"></checkbox>
+                    </div>
+                    <div class="col-sm-3">
+                        <checkbox params="field: HematologicClotting, checkedValue: 1, inline: true,updateCallback:$module.selectH"></checkbox>
+                    </div>
+                </div>
+                <div class="m070-dentition-ccc">
+                    <div class="col-sm-2">
+                        <checkbox params="field: HematologicSickleCell, checkedValue: 1, inline: true,updateCallback:$module.selectH"></checkbox>
+                    </div>
+                    <div class="col-sm-4">
+                        <checkbox params="field: HematologicHistory, checkedValue: 1, inline: true,updateCallback:$module.selectH"></checkbox>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <checkbox params="field: HematologicOther, checkedValue: 1, inline: true,updateCallback:$module.selectH"></checkbox>
+                            </div>
+                            <div class="col-sm-8">
+                                <textbox params="field: HematologicText, uiFieldName: 'HematologicText', error: 'HematologicText'"></textbox>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="m070-dentition-acne">
+                    <error-ball params="name: 'Pulmonary'"></error-ball>
+                </div>
+                <div class="m070-dentition-ccc">
+                    <div class="col-sm-3">
+                        <b>Pulmonary</b>
+                    </div>
+                    <!-- -->
+                    <div class="col-sm-3 ">
+                        <checkbox params="field: PulmonaryNoKnown, checkedValue: 1, inline: true,updateCallback:$module.selectPNO"></checkbox>
+                    </div>
+                    <div class="col-sm-3">
+                        <checkbox params="field: PulmonaryCOPD, checkedValue: 1, inline: true,updateCallback:$module.selectP"></checkbox>
+                    </div>
+                    <div class="col-sm-3">
+                        <checkbox params="field: PulmonaryAsthma, checkedValue: 1, inline: true,updateCallback:$module.selectP"></checkbox>
+                    </div>
+                </div>
+                <div class="m070-dentition-ccc">
+                    <div class="col-sm-3">
+                        <checkbox params="field: PulmonaryRecentPneumomia, checkedValue: 1, inline: true,updateCallback:$module.selectP"></checkbox>
+                    </div>
+                    <div class="col-sm-3">
+                        <checkbox params="field: PulmonarySleepApnea, checkedValue: 1, inline: true,updateCallback:$module.selectP"></checkbox>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <checkbox params="field: PulmonaryOther, checkedValue: 1, inline: true,updateCallback:$module.selectP"></checkbox>
+                            </div>
+                            <div class="col-sm-8">
+                                <textbox params="field: PulmonaryOtherText, uiFieldName: 'PulmonaryOtherText', error: 'PulmonaryText'"></textbox>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="m070-dentition-acne">
+                    <error-ball params="name: 'Neurologic'"></error-ball>
+                </div>
+                <div class="m070-dentition-ccc">
+                    <div class="col-sm-6">
+                        <b>Neurologic/Musculoskeletal</b>
+                    </div>
+                    <!-- -->
+                    <div class="col-sm-3 ">
+                        <checkbox params="field: NeurologicNoKnown, checkedValue: 1, inline: true,updateCallback:$module.selectNNO"></checkbox>
+                    </div>
+                    <div class="col-sm-3">
+                        <checkbox params="field: NeurologicStroke, checkedValue: 1, inline: true,updateCallback:$module.selectN"></checkbox>
+                    </div>
+                </div>
+                <div class="m070-dentition-ccc">
+                    <div class="col-sm-3">
+                        <checkbox params="field: NeurologicAlzheimer, checkedValue: 1, inline: true,updateCallback:$module.selectN"></checkbox>
+                    </div>
+                    <div class="col-sm-3">
+                        <checkbox params="field: NeurologicDementia, checkedValue: 1, inline: true,updateCallback:$module.selectN"></checkbox>
+                    </div>
+                    <div class="col-sm-3">
+                        <checkbox params="field: NeurologicKyphasis, checkedValue: 1, inline: true,updateCallback:$module.selectN"></checkbox>
+                    </div>
+                    <div class="col-sm-3">
+                        <checkbox params="field: NeurologicMuscularDystrophy, checkedValue: 1, inline: true,updateCallback:$module.selectN"></checkbox>
+                    </div>
+                </div>
+                <div class="m070-dentition-ccc">
+                    <div class="col-sm-3">
+                        <checkbox params="field: NeurologicMulipleSclerosis, checkedValue: 1, inline: true,updateCallback:$module.selectN"></checkbox>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <checkbox params="field: NeurologicOther, checkedValue: 1, inline: true,updateCallback:$module.selectN"></checkbox>
+                            </div>
+                            <div class="col-sm-10">
+                                <textbox params="field: NeurologicText, uiFieldName: 'NeurologicText', error: 'NeurologicText'"></textbox>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="m070-dentition-acne">
+                    <error-ball params="name: 'GI'"></error-ball>
+                </div>
+                <div class="m070-dentition-ccc">
+                    <div class="col-sm-3">
+                        <b>GI/Renal/Endocrine</b>
+                    </div>
+                    <!-- -->
+                    <div class="col-sm-4 ">
+                        <checkbox params="field: GINoKnown, checkedValue: 1, inline: true,updateCallback:$module.selectGNO"></checkbox>
+                    </div>
+                    <div class="col-sm-2">
+                        <checkbox params="field: GIGERD, checkedValue: 1, inline: true,updateCallback:$module.selectG"></checkbox>
+                    </div>
+                    <div class="col-sm-3">
+                        <checkbox params="field: GIKidneyFailure, checkedValue: 1, inline: true,updateCallback:$module.selectG"></checkbox>
+                    </div>
+                </div>
+                <div class="m070-dentition-ccc">
+                    <div class="col-sm-3">
+                        <checkbox params="field: GIHyperthyroid, checkedValue: 1, inline: true,updateCallback:$module.selectG"></checkbox>
+                    </div>
+                    <div class="col-sm-2">
+                        <checkbox params="field: GIHypothyroid, checkedValue: 1, inline: true,updateCallback:$module.selectG"></checkbox>
+                    </div>
+                    <div class="col-sm-2">
+                        <checkbox params="field: GIDiabetes, checkedValue: 1, inline: true,updateCallback:$module.selectG"></checkbox>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <checkbox params="field: GIOther, checkedValue: 1, inline: true,updateCallback:$module.selectG"></checkbox>
+                            </div>
+                            <div class="col-sm-9">
+                                <textbox params="field: GIOtherText, uiFieldName: 'GIOtherText', error: 'GIOtherText'"></textbox>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="m070-dentition-acne">
+                    <error-ball params="name: 'GYN'"></error-ball>
+                </div>
+                <div class="col-sm-1">
+                    <b>GYN</b>
+                </div>
+                <!-- -->
+                <div class="col-sm-3 ">
+                    <checkbox params="field: GYNNoKnown, checkedValue: 1, inline: true,updateCallback:$module.selectGYNO"></checkbox>
+                </div>
+                <div class="col-sm-2">
+                    <checkbox params="field: GYNPregnancy, checkedValue: 1, inline: true,updateCallback:$module.selectGY"></checkbox>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <checkbox params="field: GYNOther, checkedValue: 1, inline: true,updateCallback:$module.selectGY"></checkbox>
+                        </div>
+                        <div class="col-sm-9">
+                            <textbox params="field: GYNText, uiFieldName: 'GYNText', error: 'GYNText'"></textbox>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+        </div>
+        <h4>Anesthesia Concerns</h4>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="m070-dentition-acne">
+                    <error-ball params="name: 'AnesthesiaConcerns'"></error-ball>
+                </div>
+                <div class="col-sm-3">
+                    <checkbox params="field: AnesthesiaNoIssues, checkedValue: 1, inline: true,updateCallback:$module.selectANO"></checkbox>
+                </div>
+                <div class="col-sm-4">
+                    <checkbox params="field: AnesthesiaFamilyHistory, checkedValue: 2, inline: true,updateCallback:$module.selectA"></checkbox>
+                </div>
+                <div class="col-sm-5">
+                    <checkbox params="field: AnesthesiaPreviousComplications, checkedValue: 3, inline: true,updateCallback:$module.selectA"></checkbox>
+                </div>
+            </div>
+        </div>
+        <div style="height:10px;">&nbsp;</div>
+        <div class="row">
+            <div class="col-sm-2">
+                <field-label params="name: 'AnesthesiaNotes', colon: false"></field-label>
+
+            </div>
+            <div class="col-sm-10">
+                <textbox params="field: AnesthesiaNotes, uiFieldName: 'AnesthesiaNotes', error: 'AnesthesiaNotes'"></textbox>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2">
+                <h4>Pediatric</h4>
+            </div>
+            <div class="col-sm-1">
+                <div class="m070-dentition-acne">
+                    <checkbox params="field: PediatricNA, checkedValue: 1, inline: true,updateCallback:$module.PedNAClean"></checkbox>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="m070-dentition-acne">
+                    <error-ball params="name: 'Pediatric'"></error-ball>
+                </div>
+                <div class="col-sm-2" style="padding-right:0px;">
+                    <checkbox params="field: PediatricNoIssue, checkedValue: 1, inline: true,updateCallback:$module.PedNO,enabled:$module.PedNA"></checkbox>
+                </div>
+                <div class="col-sm-3" style="padding-right:0px">
+                    <checkbox params="field: PediatricRecentURI, checkedValue: 1, inline: true,updateCallback:$module.Ped,enabled:$module.PedNA"></checkbox>
+                </div>
+                <div class="col-sm-2" style="padding-right:0px;padding-left:0px;">
+                    <checkbox params="field: PediatricPrematurity, checkedValue: 1, inline: true,updateCallback:$module.Ped,enabled:$module.PedNA"></checkbox>
+                </div>
+                <div class="col-sm-3" style="padding-right:0px;">
+                    <checkbox params="field: PediatricCongenitalAnomaly, checkedValue: 1, inline: true,updateCallback:$module.Ped,enabled:$module.PedNA"></checkbox>
+                </div>
+                <div class="col-sm-2" style="padding-right:0px;padding-left:0px;">
+                    <checkbox params="field: PediatricHistoryOfApnea, checkedValue: 1, inline: true,updateCallback:$module.Ped,enabled:$module.PedNA"></checkbox>
+                </div>
+
+            </div>
+        </div>
+        <div style="height:10px;">&nbsp;</div>
+        <div class="row">
+            <div class="col-sm-2">
+                <field-label params="name: 'PediatricNotes', colon: false"></field-label>
+
+            </div>
+            <div class="col-sm-10">
+                <textbox params="field: PediatricNotes, uiFieldName: 'PediatricNotes', error: 'PediatricNotes',enabled:$module.PedNA"></textbox>
+
+            </div>
+        </div>
+
+        <h4>Physical Exam</h4>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-4 m070-dentition-textbox">
+                        <field-label params="name: 'UnverifiedHeight', colon: false"></field-label>
+                    </div>
+                    <div class="col-sm-8">
+                        <textbox params="field: UnverifiedHeight, uiFieldName: 'UnverifiedHeight', error: 'UnverifiedHeight'"></textbox>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-4 m070-dentition-textbox">
+                        <field-label params="name: 'UnverifiedWeight', colon: false"></field-label>
+                    </div>
+                    <div class="col-sm-8">
+                        <textbox params="field: UnverifiedWeight, uiFieldName: 'UnverifiedWeight', error: 'UnverifiedWeight'"></textbox>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-4 m070-dentition-textbox">
+                        <field-label params="name: 'UnverifiedBMI', colon: false"></field-label>
+                    </div>
+                    <div class="col-sm-8">
+                        <textbox params="field: UnverifiedBMI, uiFieldName: 'UnverifiedBMI', error: 'UnverifiedBMI'"></textbox>
+                    </div>
+                </div>
+            </div>
+            <!---->
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-5 m070-dentition-textbox">
+                        <field-label params="name: 'UnverifiedBloodPressure', colon: false"></field-label>
+                    </div>
+                    <div class="col-sm-7">
+                        <textbox params="field: UnverifiedBloodPressure, uiFieldName: 'UnverifiedBloodPressure', error: 'UnverifiedBloodPressure'"></textbox>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-4 m070-dentition-textbox">
+                        <field-label params="name: 'UnverifiedPulse', colon: false"></field-label>
+                    </div>
+                    <div class="col-sm-8">
+                        <textbox params="field: UnverifiedPulse, uiFieldName: 'UnverifiedPulse', error: 'UnverifiedPulse'"></textbox>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-5 m070-dentition-textbox">
+                        <field-label params="name: 'UnverifiedRespirations', colon: false"></field-label>
+                    </div>
+                    <div class="col-sm-7">
+                        <textbox params="field: UnverifiedRespirations, uiFieldName: 'UnverifiedRespirations', error: 'UnverifiedRespirations'"></textbox>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-5 m070-dentition-textbox">
+                        <field-label params="name: 'UnverifiedTemperature', colon: false"></field-label>
+                    </div>
+                    <div class="col-sm-7">
+                        <textbox params="field: UnverifiedTemperature, uiFieldName: 'UnverifiedTemperature', error: 'UnverifiedTemperature'"></textbox>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3 m070-dentition-textbox">
+                <field-label params="name: 'HEENT', colon: false"></field-label>
+
+            </div>
+            <div class="col-sm-8">
+                <div class="row">
+                    <div class="m070-dentition-acne">
+                        <error-ball params="name: 'HEENT'"></error-ball>
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="radio">
+                            <radio-button params="field: HEENT, groupName: 'm070-HEENT', uiFieldName: 'HEENTNormal', checkedValue: 1, inline: true"></radio-button>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="radio">
+                            <radio-button params="field: HEENT, groupName: 'm070-HEENT', uiFieldName: 'HEENTAbnormal', checkedValue: 0,inline: true"></radio-button>&nbsp;&nbsp;&nbsp;
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-sm-12">
+                <textbox params="field: HEENTText, uiFieldName: 'HEENTText', error: 'HEENTText'"></textbox>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 m070-dentition-textbox">
+                <field-label params="name: 'Cardiovascular', colon: false"></field-label>
+
+            </div>
+            <div class="col-sm-8">
+                <div class="row">
+                    <div class="m070-dentition-acne">
+                        <error-ball params="name: 'CardiovascularExam'"></error-ball>
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="radio">
+                            <radio-button params="field: Cardiovascular, groupName: 'm070-Cardiovascular', uiFieldName: 'CardiovascularRegular', checkedValue: 1, inline: true"></radio-button>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="radio">
+                            <radio-button params="field: Cardiovascular, groupName: 'm070-Cardiovascular', uiFieldName: 'CardiovascularAbnormal', checkedValue: 0,inline: true"></radio-button>&nbsp;&nbsp;&nbsp;
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-sm-12">
+                <textbox params="field: CardiovascularText, uiFieldName: 'CardiovascularText', error: 'CardiovascularExamText'"></textbox>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 m070-dentition-textbox">
+                <field-label params="name: 'Pulmonary', colon: false"></field-label>
+
+            </div>
+            <div class="col-sm-8">
+                <div class="row">
+                    <div class="m070-dentition-acne">
+                        <error-ball params="name: 'PulmonaryExam'"></error-ball>
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="radio">
+                            <radio-button params="field: Pulmonary, groupName: 'm070-Pulmonary', uiFieldName: 'PulmonaryClear', checkedValue: 1, inline: true"></radio-button>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="radio">
+                            <radio-button params="field: Pulmonary, groupName: 'm070-Pulmonary', uiFieldName: 'PulmonaryAbnormal', checkedValue: 0,inline: true"></radio-button>&nbsp;&nbsp;&nbsp;
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-sm-12">
+                <textbox params="field: PulmonaryText, uiFieldName: 'PulmonaryText', error: 'PulmonaryExamText'"></textbox>
+
+            </div>
+        </div>
+        <!--extend-->
+        <div class="row">
+            <div class="col-sm-3 m070-dentition-textbox">
+                <field-label params="name: 'GI', colon: false"></field-label>
+
+            </div>
+            <div class="col-sm-8">
+                <div class="row">
+                    <div class="m070-dentition-acne">
+                        <error-ball params="name: 'GIExam'"></error-ball>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="radio">
+                            <radio-button params="field: GI, groupName: 'm070-GI', uiFieldName: 'GIDeferred', checkedValue: 1, inline: true"></radio-button>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="radio">
+                            <radio-button params="field: GI, groupName: 'm070-GI', uiFieldName: 'GIWHL', checkedValue: 2,inline: true"></radio-button>&nbsp;&nbsp;&nbsp;
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="radio">
+                            <radio-button params="field: GI, groupName: 'm070-GI', uiFieldName: 'GIAbnormal', checkedValue: 3,inline: true"></radio-button>&nbsp;&nbsp;&nbsp;
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-12">
+                <textbox params="field: GIText, uiFieldName: 'GIText', error: 'GIExamText'"></textbox>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 m070-dentition-textbox">
+                <field-label params="name: 'Extremities', colon: false"></field-label>
+
+            </div>
+            <div class="col-sm-8">
+                <div class="row">
+                    <div class="m070-dentition-acne">
+                        <error-ball params="name: 'Extremities'"></error-ball>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="radio">
+                            <radio-button params="field: Extremities, groupName: 'm070-Extremities', uiFieldName: 'ExtremitiesDeferred', checkedValue: 1, inline: true"></radio-button>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="radio">
+                            <radio-button params="field: Extremities, groupName: 'm070-Extremities', uiFieldName: 'ExtremitiesWHL', checkedValue: 2,inline: true"></radio-button>&nbsp;&nbsp;&nbsp;
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="radio">
+                            <radio-button params="field: Extremities, groupName: 'm070-Extremities', uiFieldName: 'ExtremitiesAbnormal', checkedValue: 3,inline: true"></radio-button>&nbsp;&nbsp;&nbsp;
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-12">
+                <textbox params="field: ExtremitiesText, uiFieldName: 'ExtremitiesText', error: 'ExtremitiesText'"></textbox>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 m070-dentition-textbox">
+                <field-label params="name: 'Musculoskeletal', colon: false"></field-label>
+
+            </div>
+            <div class="col-sm-8">
+                <div class="row">
+                    <div class="m070-dentition-acne">
+                        <error-ball params="name: 'Musculoskeletal'"></error-ball>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="radio">
+                            <radio-button params="field: Musculoskeletal, groupName: 'm070-Musculoskeletal', uiFieldName: 'MusculoskeletalDeferred', checkedValue: 1, inline: true"></radio-button>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="radio">
+                            <radio-button params="field: Musculoskeletal, groupName: 'm070-Musculoskeletal', uiFieldName: 'MusculoskeletalNormal', checkedValue: 2,inline: true"></radio-button>&nbsp;&nbsp;&nbsp;
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="radio">
+                            <radio-button params="field: Musculoskeletal, groupName: 'm070-Musculoskeletal', uiFieldName: 'MusculoskeletalAbnormal', checkedValue: 3,inline: true"></radio-button>&nbsp;&nbsp;&nbsp;
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-12">
+                <textbox params="field: MusculoskeletalText, uiFieldName: 'MusculoskeletalText', error: 'MusculoskeletalText'"></textbox>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 m070-dentition-textbox">
+                <field-label params="name: 'Neurological', colon: false"></field-label>
+
+            </div>
+            <div class="col-sm-8">
+                <div class="row">
+                    <div class="m070-dentition-acne">
+                        <error-ball params="name: 'Neurological'"></error-ball>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="radio">
+                            <radio-button params="field: Neurological, groupName: 'm070-Neurological', uiFieldName: 'NeurologicalDeferred', checkedValue: 1, inline: true"></radio-button>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="radio">
+                            <radio-button params="field: Neurological, groupName: 'm070-Neurological', uiFieldName: 'NeurologicalWHL', checkedValue: 2,inline: true"></radio-button>&nbsp;&nbsp;&nbsp;
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="radio">
+                            <radio-button params="field: Neurological, groupName: 'm070-Neurological', uiFieldName: 'NeurologicalAbnormal', checkedValue: 3,inline: true"></radio-button>&nbsp;&nbsp;&nbsp;
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-12">
+                <textbox params="field: NeurologicalText, uiFieldName: 'NeurologicalText', error: 'NeurologicalText'"></textbox>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 m070-dentition-textbox">
+                <field-label params="name: 'Genitalia', colon: false"></field-label>
+
+            </div>
+            <div class="col-sm-8">
+                <div class="row">
+                    <div class="m070-dentition-acne">
+                        <error-ball params="name: 'Genitalia'"></error-ball>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="radio">
+                            <radio-button params="field: Genitalia, groupName: 'm070-Genitalia', uiFieldName: 'GenitaliaDeferred', checkedValue: 1, inline: true"></radio-button>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="radio">
+                            <radio-button params="field: Genitalia, groupName: 'm070-Genitalia', uiFieldName: 'GenitaliaWHL', checkedValue: 2,inline: true"></radio-button>&nbsp;&nbsp;&nbsp;
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="radio">
+                            <radio-button params="field: Genitalia, groupName: 'm070-Genitalia', uiFieldName: 'GenitaliaAbnormal', checkedValue: 3,inline: true"></radio-button>&nbsp;&nbsp;&nbsp;
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-12">
+                <textbox params="field: GenitaliaText, uiFieldName: 'GenitaliaText', error: 'GenitaliaText'"></textbox>
+
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-sm-3 m070-dentition-textbox">
+                <field-label params="name: 'Assessment', colon: false"></field-label>
+
+            </div>
+            <div class="col-sm-8">
+                <radio-button params="field: Assessment, groupName: 'm070-Assessment', uiFieldName: 'AssessmentApproved', checkedValue: 1, inline: true"></radio-button>
+
+            </div>
+            <div class="col-sm-9" style="float:right;">
+                <radio-button params="field: Assessment, groupName: 'm070-Assessment', uiFieldName: 'AssessmentNotApproved', checkedValue: 2, inline: true"></radio-button>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-10">
+                <field-label params="name: 'Notes', colon: false"></field-label>
+
+            </div>
+            <div class="col-sm-12">
+                <textbox params="field: Notes, uiFieldName: 'Notes', error: 'Notes'"></textbox>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <field-label params="name: 'PerformedByName', colon: false"></field-label>
+            </div>
+            <div class="col-sm-4">
+                <typeahead params="name:    'Physician',
+                                           min: 2,
+                                           search:  'PhysicianName',
+                                           field:    PerformedByName  ,
+                                           normalized: true,
+                                           fieldMap: {
+                                                     'PhysicianID':      PerformedByID,
+                                                      'PhysicianName':    PerformedByName,
+                                                      'UserID': PerformedByUserID
+                                           },
+                                           setButton: le.ta.PhysicianMe,
+                                           error: 'PerformedByName',
+                                            setButtonEnabled:$module.isValidPhysician"></typeahead>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <field-label params="name: 'PerformedDate', colon: false"></field-label>
+            </div>
+            <div class="col-sm-4">
+                <timepicker params="field: PerformedDate, format: 'HH:mm',   tabindex:1,error: 'PerformedDate'"></timepicker>
+            </div>
+
+        </div>
+    </div>
+
+</div>

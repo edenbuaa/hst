@@ -1,0 +1,170 @@
+﻿
+@{
+    ViewBag.Title = "Update QuestionnaireTemplate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div>
+    <div id="divQuestionnaireTemplateBuild">
+        <div class="container">
+          
+            <div class="row  chart-designer-color"><span class="chart-designer-header">Update Questionnaire Template</span></div>
+            <div class="row top-buffer"></div>
+            <div class="row top-buffer">
+                <div class="col-sm-4">
+                    <span>Questionnaire Template Name</span>
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" data-bind="value:QuestionnaireTemplate.QuestionnaireName,disable:QuestionnaireTemplate.InUse==true"  />
+                    <span id="requiredQuestionnaireName" class="text-danger chart-designer-validation" >Questionnaire Name is required</span>
+                </div>
+            </div>
+            <div class="row top-buffer">
+                <div class="col-sm-12">
+                    <span data-bind="visible:QuestionnaireTemplate.InUse==true" class="text-primary" id="QuestionnaireInUse">Note: This Questionnaire Template is currently in use in a Chart Template. Updated Questionnaire will be reflected in the chart after the Chart Template is republished</span>
+                    </div>
+            </div>
+            <div class="row top-buffer">
+                <div class="col-sm-8">
+                    <input type="checkbox" value="false" data-bind="checked:QuestionnaireTemplateCategory" />
+                    <span>Will be used in Consent BLOC</span>
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+
+                <div class="row top-buffer">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                Question Templates
+                            </h3>
+                            <span class="pull-right chart-designer-clickable" onclick="eChart.ChartDesigner.showChooseQuestionTemplateDialog()"><i class=" glyphicon glyphicon-plus"></i></span>
+                        </div>
+                        <div>
+                            <span id="requiredQuestionTemplate" class="text-danger chart-designer-validation">Questionnaire Template requires at least one Question Template</span>
+                        </div>
+                        <div class="panel-body">
+                            <simple-grid params="showPager:false,dataSource:'QuestionTemplates',noDataMessage:'Click on + above to start adding Question Templates',removeEvent:removeQuestionTemplate,moveUpEnabled:moveUpEnabledWhen,moveDownEnabled:moveDownEnabledWhen,moveUpEvent:moveQuestionTemplateUp,moveDownEvent:moveQuestionTemplateDown">
+                                <simple-grid-column name="QuestionText" type="text" sortable="false" sorttype="Alpha" header="Question Text" hassubitems="true" subitemname="SubQuestions" subitemfield="QuestionText"></simple-grid-column>
+                                <simple-grid-column name="QuestionTypeName" type="text" sortable="false" sorttype="Numeric" header="Question Type"></simple-grid-column>
+                                <simple-grid-column name="RequiredInQuestionnaire" type="checkbox" sortable="false" sorttype="" header="Required"></simple-grid-column>
+                                <simple-grid-column name="SelectedCustomTemplate" type="dropdown" sortable="false" sorttype="" header="Custom Template" source="CustomTemplates" caption="None" ></simple-grid-column>
+                                <simple-grid-column name="moveUp" type="moveUp" sortable="false" sorttype="" header=""></simple-grid-column>
+                                <simple-grid-column name="moveDown" type="moveDown" sortable="false" sorttype="" header=""></simple-grid-column>
+                                <simple-grid-column name="remove" type="remove" sortable="false" sorttype="" header=""></simple-grid-column>
+                            </simple-grid>
+                        </div>
+                    </div>
+                </div>
+                <div class="row top-buffer">
+                    <div class="col-sm-2"><i class="hst-loading fa fa-spinner fa-spin fa-2x text-primary" style="display: none;"></i></div>
+                    <div class="col-sm-8">
+                        <button type="button" class="btn btn-primary" id="save" data-bind="click:saveQuestionnaireTemplate">Save Questionnaire Template</button>
+                        <button type="button" class="btn btn-default" data-bind="click:navigateToQuestionnaireTemplates()" data-dismiss="modal">Cancel</button>
+                    </div>
+                    <div class="col-sm-1">
+
+                    </div>
+                </div>
+            </div>
+        <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="add-question-template-flyout">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content hst-flyout">
+                    <div class="chart-designer-header-dialog">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Add Question Template</h4>
+                    </div>
+                    <div class="modal-dialog" id="questionnaire-flyout-container">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row top-buffer">
+                                    <div class="col-sm-12">
+                                        <div class="col-sm-2">Category</div>
+                                        <div class="col-sm-6">
+                                            <select class="form-control chart-designer-selectWidth" data-bind="options: QuestionTemplateCategories, optionsText :'QuestionCategoryName' ,
+                                value :searchCategory, optionsCaption: 'SELECT CATEGORY'"></select>
+                                        </div>
+                                        <div class="col-sm-4"></div>
+                                    </div>
+                                </div>
+                                <div class="row top-buffer">
+                                    <div class="col-sm-12">
+                                        <div class="col-sm-9">
+                                            <input type="text" placeholder="Type to search..." autocomplete="off" class="form-control typeahead-input" data-bind="textInput: searchText">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <button type="button" class="btn btn-default" data-bind="click: searchQuestionTemplates, text: searchText().length>0 ? 'Search' : 'Show All'">Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+
+
+                                <div class="row top-buffer">
+                                    <simple-grid params="showPager:true,dataSource:'AllQuestionTemplates',noDataMessage:'No Question Templates present',addEvent:addSelectedQuestionTemplate">
+                                        <simple-grid-column name="QuestionText" type="text" sortable="true" sorttype="Alpha" header="Question Text" hassubitems="true" subitemname="SubQuestions" subitemfield="QuestionText"></simple-grid-column>
+                                        <simple-grid-column name="QuestionTypeName" type="text" sortable="true" sorttype="Numeric" header="Question Type"></simple-grid-column>
+                                        <simple-grid-column name="add" type="add" sortable="false" sorttype="" header=""></simple-grid-column>
+                                    </simple-grid>
+                                </div>
+                            </div>
+
+                            <div class="row top-buffer-lg">
+                                <div class="col-sm-12">
+                                    <div class="form-inline pull-right">
+                                        <button id="hst-add-questiontemplate-close" onclick="eChart.ChartDesigner.closeAddQuestionTemplateDialog()" class=" btn btn-default">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+        </div>
+    </div>
+    @Html.Partial("Components/_SimpleGridTemplatePartial")
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="hst-ok-flyout">
+<div class="modal-dialog modal-lg">
+    <div class="modal-content hst-flyout">
+        <div class="row top-buffer-sm">
+            <div id="hst-ok-message" class="col-sm-12">Successfully updated the Questionnaire Template</div>
+        </div>
+        <div class="row top-buffer-lg">
+            <div class="col-sm-12">
+                <div class="form-inline pull-right">
+                    <button id="hst-ok" class="btn btn-default">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="hst-error-flyout">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content hst-flyout">
+            <div class="row top-buffer-sm">
+                <div id="hst-ok-message" class="col-sm-12">Failed to update the Questionnaire Template</div>
+            </div>
+            <div class="row top-buffer-lg">
+                <div class="col-sm-12">
+                    <div class="form-inline pull-right">
+                        <button id="hst-error-ok" class="btn btn-default">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        var builder = new eChart.ChartDesigner.QuestionnaireTemplateBuilder();
+        builder.init("@Model.ApplicationVirtualPath",@Html.Raw(@Model.QuestionnaireTemplateJSON),[],@Html.Raw(@Model.CategoryTypesJSON),@Html.Raw(@Model.QuestionTemplatesJSON));
+        ko.applyBindings(builder,document.getElementById("divQuestionnaireTemplateBuild"));
+
+    });
+
+</script>
+
+
+

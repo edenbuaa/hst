@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0058E554-0550-4182-96BB-5DC57BC7315D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hst.Core</RootNamespace>
+    <AssemblyName>Hst.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'IIS Express|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\IIS Express\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'IIS_Release_EHRBUILD|AnyCPU'">
+    <OutputPath>bin\IIS_Release_EHRBUILD\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'IIS_Release_IIS_DEV|AnyCPU'">
+    <OutputPath>bin\IIS_Release_IIS_DEV\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'IIS_RELEASE_EHRDEV|AnyCPU'">
+    <OutputPath>bin\IIS_RELEASE_EHRDEV\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'IIS_DEBUG_EHRDEV|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\IIS_DEBUG_EHRDEV\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Reflection.Context" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\ChartStatusRepository.cs" />
+    <Compile Include="eChartLog.cs" />
+    <Compile Include="Entity\AccessKeys.cs" />
+    <Compile Include="Entity\Areakeys.cs" />
+    <Compile Include="Entity\ChartStatusInfo.cs" />
+    <Compile Include="Entity\FunctionKeys.cs" />
+    <Compile Include="Enum\ActionStatus.cs" />
+    <Compile Include="Enum\ActivityStatus.cs" />
+    <Compile Include="Enum\AddendaStatus.cs" />
+    <Compile Include="Enum\AdvancedDirectiveStatus.cs" />
+    <Compile Include="Enum\AirwayTypes.cs" />
+    <Compile Include="Enum\AllergySeverities.cs" />
+    <Compile Include="Enum\AllergyStatus.cs" />
+    <Compile Include="Enum\AllergyTypes.cs" />
+    <Compile Include="Enum\AppliedMonitorNIBPBody.cs" />
+    <Compile Include="Enum\AppliedMonitorNIBPSide.cs" />
+    <Compile Include="Enum\ApprovalStatus.cs" />
+    <Compile Include="Enum\ASACategoryStatus.cs" />
+    <Compile Include="Enum\BicepStatus.cs" />
+    <Compile Include="Enum\BleedingStatus.cs" />
+    <Compile Include="Enum\BloodProductStatus.cs" />
+    <Compile Include="Enum\BodySide.cs" />
+    <Compile Include="Enum\BreathSoundStatus.cs" />
+    <Compile Include="Enum\CapillaryFillStatus.cs" />
+    <Compile Include="Enum\CatheterSizeStatus.cs" />
+    <Compile Include="Enum\ColorStatus.cs" />
+    <Compile Include="Enum\ColorTypes.cs" />
+    <Compile Include="Enum\CompressionStockingsLength.cs" />
+    <Compile Include="Enum\CompressionStockingsSide.cs" />
+    <Compile Include="Enum\ConciousnessStatus.cs" />
+    <Compile Include="Enum\ConditionAdmissionStatus.cs" />
+    <Compile Include="Enum\CoughDeepBreatheStatus.cs" />
+    <Compile Include="Enum\DispositionStatus.cs" />
+    <Compile Include="Enum\DocumentFormatStatus.cs" />
+    <Compile Include="Enum\DorsiFlexStatus.cs" />
+    <Compile Include="Enum\DrainageStatus.cs" />
+    <Compile Include="Enum\DressingStatus.cs" />
+    <Compile Include="Enum\EBLStatus.cs" />
+    <Compile Include="Enum\EmotionalStatus.cs" />
+    <Compile Include="Enum\EnumsForAnesthesiaHistory.cs" />
+    <Compile Include="Enum\EnumsForGeneralAnesthesiaInduction.cs" />
+    <Compile Include="Enum\EnumsForRegionalAnesthesia.cs" />
+    <Compile Include="Enum\EscortStatus.cs" />
+    <Compile Include="Enum\ExtremityStatus.cs" />
+    <Compile Include="Enum\FamilyAwareStatus.cs" />
+    <Compile Include="Enum\FluidAmountStatus.cs" />
+    <Compile Include="Enum\FluidTypeStatus.cs" />
+    <Compile Include="Enum\GraspStatus.cs" />
+    <Compile Include="Enum\ImplantConfirmedStatus.cs" />
+    <Compile Include="Enum\InsertionSiteStatus.cs" />
+    <Compile Include="Enum\LevelOfConsciousnessStatus.cs" />
+    <Compile Include="Enum\LocationStatus.cs" />
+    <Compile Include="Enum\MedicationStatus.cs" />
+    <Compile Include="Enum\CommunicationStatus.cs" />
+    <Compile Include="Enum\DateOfServiceEnum.cs" />
+    <Compile Include="Enum\FinalCountStatus.cs" />
+    <Compile Include="Enum\InstrumentsCountStatus.cs" />
+    <Compile Include="Enum\LungSoundsType.cs" />
+    <Compile Include="Enum\MentalStatus.cs" />
+    <Compile Include="Enum\MentalStatusAlert.cs" />
+    <Compile Include="Enum\MentalStatusOriented.cs" />
+    <Compile Include="Enum\MovementStatus.cs" />
+    <Compile Include="Enum\NauseaStatus.cs" />
+    <Compile Include="Enum\NourishmentStatus.cs" />
+    <Compile Include="Enum\OtherCountStatus.cs" />
+    <Compile Include="Enum\PatientUnderstandStatus.cs" />
+    <Compile Include="Enum\PersonalItemsStatus.cs" />
+    <Compile Include="Enum\PhysicalStatus.cs" />
+    <Compile Include="Enum\PlantarFlexStatus.cs" />
+    <Compile Include="Enum\PositionAdmissionStatus.cs" />
+    <Compile Include="Enum\PostOpDressingStatus.cs" />
+    <Compile Include="Enum\PostTractionNeurovascularStatus.cs" />
+    <Compile Include="Enum\PrescriptionType.cs" />
+    <Compile Include="Enum\PressurePointsStatus.cs" />
+    <Compile Include="Enum\PreTractionNeurovascularStatus.cs" />
+    <Compile Include="Enum\PrimaryLearnerStatus.cs" />
+    <Compile Include="Enum\PulsesStatus.cs" />
+    <Compile Include="Enum\ReligiousCulturalStatus.cs" />
+    <Compile Include="Enum\RespirationsType.cs" />
+    <Compile Include="Enum\SensationStatus.cs" />
+    <Compile Include="Enum\SeqCompressionDeviceLength.cs" />
+    <Compile Include="Enum\SeqCompressionDeviceSide.cs" />
+    <Compile Include="Enum\SharpsCountStatus.cs" />
+    <Compile Include="Enum\SideConfirmedStatus.cs" />
+    <Compile Include="Enum\SiteConditionStatus.cs" />
+    <Compile Include="Enum\SpongesCountStatus.cs" />
+    <Compile Include="Enum\StateOfConsciousness.cs" />
+    <Compile Include="Enum\SuppliesType.cs" />
+    <Compile Include="Enum\SwellingStatus.cs" />
+    <Compile Include="Enum\TemperatureStatus.cs" />
+    <Compile Include="Enum\TricepStatus.cs" />
+    <Compile Include="Enum\VitalsAnesthesiaGraphEnums.cs" />
+    <Compile Include="Enum\VitalsStatus.cs" />
+    <Compile Include="Enum\VoidedPostOpStatus.cs" />
+    <Compile Include="Enum\VTERiskAssessmentMedicationName.cs" />
+    <Compile Include="Enum\WoundClassType.cs" />
+    <Compile Include="Extensions\DirectoryInfoExtensions.cs" />
+    <Compile Include="Extensions\Extensions.cs" />
+    <Compile Include="FileCompress.cs" />
+    <Compile Include="Helpers\BLOCHelp.cs" />
+    <Compile Include="Helpers\ChartHelper.cs" />
+    <Compile Include="Helpers\ChartStatusText.cs" />
+    <Compile Include="Helpers\ChartStatusKeyword.cs" />
+    <Compile Include="Helpers\ChartColor.cs" />
+    <Compile Include="Helpers\ConfigurationHelper.cs" />
+    <Compile Include="Helpers\ChartIcon.cs" />
+    <Compile Include="Helpers\ConversionUtil.cs" />
+    <Compile Include="Helpers\FunctionKeyHelper.cs" />
+    <Compile Include="Helpers\OSHelper.cs" />
+    <Compile Include="Helpers\SecurityHelper.cs" />
+    <Compile Include="MSMQ\ReportQueueService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Helpers\XmlHelper.cs" />
+    <Compile Include="QuestionTypeDictionary.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EHRProxy\EHRProxy.csproj">
+      <Project>{df8270c7-1e78-40bb-8859-bcbd052fd9fd}</Project>
+      <Name>EHRProxy</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

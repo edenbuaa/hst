@@ -1,0 +1,35 @@
+﻿<div class="has-module">
+    <div class="row" data-bind="with: Tables.t_EHR_VisitAddendum.Single">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-12">
+                    <field-label params="name: 'Reason', colon: false"></field-label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <textbox params="field: Reason"></textbox>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <field-label params="name: 'Addendum', colon: false"></field-label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <textbox params="field: Addendum"></textbox>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">                    
+                    <span data-bind="text: dateBy"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

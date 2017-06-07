@@ -1,0 +1,196 @@
+﻿<script id="simple-grid-template" type="text/x-knockout-template"> 
+    <div class="row top-buffer">
+        <div class="row col-sm-12" >
+            <table class="table table-striped table-bordered ">
+                <thead>
+                    <tr class="chart-designer-table-header">
+                        <!--ko if: $component.dataSelectable -->
+                        <th style="width:18px;"><input type="checkbox" data-bind="checked: $component.selectAll" /></th>
+                        <!-- /ko -->
+
+                        <!-- ko foreach: { data: $component.columns, as: 'column' } -->
+                        <!--ko if: column.sortable===true -->
+                        <th data-bind="event: { mousedown:$component.columnHeaderClicked(column), touchend: $component.columnHeaderClicked(column) }">
+                            <!-- ko text: column.header --><!-- /ko -->
+                            <span data-bind="css: $component.selectionStyle(column)"></span>
+                        </th>
+                        <!-- /ko -->
+                        <!--ko if: column.sortable != true -->
+                        <th data-bind="text:column.header"></th>
+                        <!-- /ko -->
+                        <!-- /ko -->
+                    </tr>
+                </thead>
+                <!-- ko if: dataRows().length > 0 -->
+                <!-- ko if: dataRows.pageItems -->
+                <!-- ko foreach: { data:dataRows.pageItems , as: 'row' }-->
+                <tbody>
+                   <tr>
+                        <!--ko if: $component.dataSelectable -->
+                        <td><input type="checkbox" data-bind="checked: row[$component.dataSelectColumn]" /></td>
+                        <!-- /ko -->
+                        <!-- ko foreach: { data: $component.columns, as: 'column' } -->
+                        <!--ko if: column.type==='text' -->
+                        <!--ko if: column.hasSubItems=='true' -->
+                        <td>
+                            <div data-bind="with:row">
+                                <div data-bind="text:row[column.name]"></div>
+                                <!-- ko foreach: { data: row[column.subItemName], as: 'subItem' } -->
+                                <div>
+                                    <span class="glyphicon glyphicon-chevron-right"></span><span data-bind="text:subItem[column.subItemField]"></span>
+                                </div>
+                                <!-- /ko -->
+                            </div>
+                        </td>
+                        <!-- /ko -->
+                        <!--ko ifnot: column.hasSubItems=='true' -->
+                        <td data-bind="text: $parent[column.name]"></td>
+                        <!-- /ko -->
+                        <!-- /ko -->
+                        <!--ko if: column.type==='moveUp' -->
+                        <td data-bind="click: $component.upEvent(row,event)"><a href="javascript:;" class="btn btn-sm"><i data-bind="css: $component.moveUpCSS($parentContext.$index)" aria-hidden="true"></i></a></td>                            <!-- /ko -->
+                        <!--ko if: column.type==='moveDown' -->
+                        <td data-bind="click: $component.downEvent(row,event)"><span data-bind="css: $component.moveDownCSS($parentContext.$index)" aria-hidden="true"></span></td>
+                        <!-- /ko -->
+                        <!--ko if: column.type==='edit' -->
+                        <td data-bind="click: $component.editEvent(row)"><span data-bind="css: $component.editCSS(row)"></span></td>
+                        <!-- /ko -->
+                        <!--ko if: column.type==='remove' -->
+                        <td data-bind="click: $component.removeEvent(row)">
+                            <span data-bind="css: $component.removeCSS(row)"></span>                        </td>
+                        <!-- /ko -->
+                        <!--ko if: column.type==='add' -->
+                        <td data-bind="click: $component.addEvent(row)"><span data-bind="css: $component.addCSS(row)"></span></td>
+                        <!-- /ko -->
+                        <!--ko if: column.type==='textbox' -->
+                        <td><input type="text" data-bind="value:row[column.name]" /></td>
+                        <!-- /ko -->
+                        <!--ko if: column.type==='textarea' -->
+                        <td><textarea data-bind="value:row[column.name]" class="form-control chart-designer-selectWidth" rows="2" cols="30" /></td>
+                        <!-- /ko -->
+                        <!--ko if: column.type==='checkbox' -->
+                        <td><input type="checkbox" data-bind="checked:row[column.name],enable:column.controlEnabled!='false'" /></td>
+                        <!-- /ko -->
+                       <!--ko if: column.type==='linkbutton' -->
+                       <td><a class="simplegrid-link" data-bind=" text:row[column.name],click:$component.linkbuttonEvent(row)"></a></td>
+                       <!-- /ko -->
+                       <!--ko if: column.type==='dropdown' -->
+                       <td><select class="form-control chart-designer-selectWidth" data-bind="options:column.source, optionsText :'DisplayName' ,
+                                value :row[column.name], optionsCaption: column.Caption"></select></td>
+                       <!-- /ko -->
+                        <!-- /ko -->
+                    </tr>
+                </tbody>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko ifnot: dataRows.pageItems -->
+                <!-- ko foreach: { data:dataRows , as: 'row' }-->
+                <tbody>
+                    <tr>
+                        <!--ko if: $component.dataSelectable -->
+                        <td><input type="checkbox" data-bind="checked: row[$component.dataSelectColumn]" /></td>
+                        <!-- /ko -->
+                        <!-- ko foreach: { data: $component.columns, as: 'column' } -->
+                        <!--ko if: column.type==='text' -->
+                        <!--ko if: column.hasSubItems=='true' -->
+                        <td>
+                            <div data-bind="with:row">
+                                <div data-bind="text:row[column.name]"></div>
+                                <!-- ko foreach: { data: row[column.subItemName], as: 'subItem' } -->
+                                <div>
+                                    <span class="glyphicon glyphicon-chevron-right"></span><span data-bind="text:subItem[column.subItemField]"></span>
+                                </div>
+                                <!-- /ko -->
+                            </div>
+                        </td>
+                        <!-- /ko -->
+                        <!--ko ifnot: column.hasSubItems=='true' -->
+                        <td data-bind="text: $parent[column.name]"></td>
+                        <!-- /ko -->
+                        <!-- /ko -->
+                        <!--ko if: column.type==='moveUp' -->
+                        <td data-bind="click: $component.upEvent(row,event)"><span data-bind="css: $component.moveUpCSS($parentContext.$index)" aria-hidden="true"></span></td>                            <!-- /ko -->
+                        <!--ko if: column.type==='moveDown' -->
+                        <td data-bind="click: $component.downEvent(row,event)"><span data-bind="css: $component.moveDownCSS($parentContext.$index)" aria-hidden="true"></span></td>
+                        <!-- /ko -->
+                        <!--ko if: column.type==='edit' -->
+                        <td data-bind="click: $component.editEvent(row)"><span data-bind="css: $component.editCSS(row)"></span></td>
+                        <!-- /ko -->
+                        <!--ko if: column.type==='remove' -->
+                        <td data-bind="click: $component.removeEvent(row)"><span data-bind="css: $component.removeCSS(row)"></span></td>
+                        <!-- /ko -->
+                        <!--ko if: column.type==='add' -->
+                        <td data-bind="click: $component.addEvent(row)"><span data-bind="css: $component.addCSS(row)"></span></td>
+                        <!-- /ko -->
+                        <!--ko if: column.type==='textbox' -->
+                        <td><input type="text" data-bind="value:row[column.name]" /></td>
+                        <!-- /ko -->
+                        <!--ko if: column.type==='textarea' -->
+                        <td><textarea data-bind="value:row[column.name]" class="form-control chart-designer-selectWidth" rows="2" cols="30" /></td>
+                        <!-- /ko -->
+                        <!--ko if: column.type==='checkbox' -->
+                        <td><input type="checkbox" data-bind="checked:row[column.name],enable:column.controlEnabled!='false'" /></td>
+                        <!-- /ko -->
+                        <!--ko if: column.type==='linkbutton' -->
+                        <td><a data-bind="text:row[column.name],click:$component.linkbuttonEvent(row)"></a></td>
+                        <!-- /ko -->
+                        <!--ko if: column.type==='dropdown' -->
+                        <td>
+                            <select class="form-control chart-designer-selectWidth" data-bind="options:column.source, optionsText :'DisplayName' ,
+                                value :row[column.name], optionsCaption: column.Caption"></select>
+                        </td>
+                        <!-- /ko -->
+                        <!-- /ko -->
+                    </tr>
+                </tbody>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko ifnot: dataRows().length > 0 -->
+                <tbody>
+                    <tr class="chart-designer-empty-grid-row">
+                        <td class="chart-designer-empty-grid-row-cell" data-bind="attr: { colspan: $component.columns.length + 2 }, text: $component.noDataMessage"></td>
+                    </tr>
+                </tbody>
+                <!-- /ko -->
+            </table>
+        </div>
+        <!--ko if: $component.showPager===true -->
+        <div class="row col-sm-12 ">
+            <ul class="pagination pull-right">
+
+                <li data-bind="css: { disabled:dataRows.isFirstPage() }" class="previous disabled">
+                    <a href="#" aria-label="First" data-bind="click: dataRows.toFirstPage">
+                        First
+                    </a>
+                </li>
+
+                <li data-bind="css: { disabled: !dataRows.hasPreviousPage() }" class="previous disabled">
+                    <a href="#" aria-label="Previous" data-bind="click: dataRows.toPreviousPage">
+                        Previous
+                    </a>
+                </li>
+
+                <!-- ko foreach: dataRows.pages -->
+                <li data-bind="css: { active: $data == $parent.dataRows.pageNumber() }">
+                    <a href="#" data-bind="text: $data, click: $parent.dataRows.pageNumber.bind($data)"></a>
+                </li>
+                <!-- /ko -->
+
+                <li data-bind="css: { disabled: !dataRows.hasNextPage() }" class="next disabled">
+                    <a href="#" aria-label="Next" data-bind="click: dataRows.toNextPage">
+                        Next
+                    </a>
+                </li>
+
+                <li data-bind="css: { disabled: dataRows.isLastPage() }" class="next disabled">
+                    <a href="#" aria-label="Last" data-bind="click: dataRows.toLastPage">
+                        Last
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- /ko -->
+    </div>
+</script>
+
